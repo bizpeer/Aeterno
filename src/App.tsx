@@ -12,7 +12,7 @@ import { Admin } from './pages/Admin';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Aeterno">
       <Routes>
         <Route path="/" element={<LangRedirect />} />
         <Route path="/admin" element={<Admin />} />
