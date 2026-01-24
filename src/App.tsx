@@ -12,7 +12,7 @@ import { Admin } from './pages/Admin';
 
 function App() {
   return (
-    <Router basename="/Aeterno">
+    <Router basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<LangRedirect />} />
         <Route path="/admin" element={<Admin />} />
