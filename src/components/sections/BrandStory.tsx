@@ -26,16 +26,15 @@ export function BrandStory() {
                         <span className="text-BRAND-teal text-sm font-bold tracking-widest uppercase mb-4 block">
                             {t('nav.brandData')}
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-serif text-white mb-12 leading-tight">
-                            "Water that has traveled for a thousand years."
+                        <h2 className="text-4xl md:text-5xl font-serif text-white mb-4 leading-tight">
+                            {t('brandStory.philosophyTitle')}
                         </h2>
-                        <div className="space-y-6 text-lg text-white/70 font-light leading-relaxed">
+                        <div className="space-y-1 text-lg text-white/70 font-light leading-relaxed">
                             <p>
-                                Deep in the East Sea, 1,032 meters below the surface, exists a purity untouched by modern civilization.
-                                Aeterno captures this pristine essence, preserved in high pressure and low temperature for centuries.
+                                {t('brandStory.philosophyBody1')}
                             </p>
                             <p>
-                                It is not just water. It is history, science, and the purest form of hydration nature has to offer.
+                                {t('brandStory.philosophyBody2')}
                             </p>
                         </div>
                     </motion.div>

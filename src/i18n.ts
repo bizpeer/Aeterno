@@ -43,6 +43,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"Water that has traveled for a thousand years.\"",
+                "philosophyBody1": "Deep in the East Sea, 1,032 meters below the surface, exists a purity untouched by modern civilization. Aeterno captures this pristine essence, preserved in high pressure and low temperature for centuries.",
+                "philosophyBody2": "It is not just water. It is history, science, and the purest form of hydration nature has to offer.",
                 "narration1": "When all the waters of the world compromised with pollution, AETERNO entered into deep silence. An abyss 1,032m deep where even light cannot reach. The water aged there for centuries is not just hydration. It is the most primordial life force that awakens your cells.",
                 "narration2": "We do not create water; we draw from the primordial depths."
             }
@@ -89,6 +92,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"천 년의 시간이 빚어낸 물\"",
+                "philosophyBody1": "동해 수심 1,032m, 현대 문명이 닿지 않은 순수함이 그곳에 있습니다. 에테르노(AETERNO)는 수세기에 걸쳐 고압과 저온 속에서 보존된 태고의 정수를 담아냅니다.",
+                "philosophyBody2": "이것은 단순한 물이 아닙니다. 자연이 선사할 수 있는 가장 순수한 형태의 수분이며, 동시에 역사이자 과학입니다.",
                 "narration1": "세상의 모든 물이 오염과 타협할 때, 에테르노(AETERNO)는 깊은 침묵 속으로 들어갔습니다. 빛조차 닿지 않는 1,032m의 심연. 그곳에서 수세기의 시간 동안 숙성된 물은 단순한 수분이 아닙니다. 그것은 당신의 세포를 깨우는 가장 원초적인 생명력입니다.",
                 "narration2": "우리는 물을 만드는 것이 아니라, 태고의 깊이를 길어 올립니다."
             }
@@ -135,6 +141,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "「千年の時が作り上げた水」",
+                "philosophyBody1": "東海の水深1,032m、現代文明が触れることのない純粋さがそこにあります。エテルノ(AETERNO)は、数世紀にわたり高圧と低温の中で保存された太古の精髄を捉えています。",
+                "philosophyBody2": "これは単なる水ではありません。歴史であり、科学であり、自然が提供できる最も純粋な水分補給の形です。",
                 "narration1": "世界のすべての水が汚染と妥協したとき、エテルノ(AETERNO)は深い沈黙の中へと入っていきました。光さえ届かない1,032mの深淵。そこで何世紀もの間熟成された水は、単なる水分ではありません。それはあなたの細胞を目覚めさせる、最も原始的な生命力です。",
                 "narration2": "私たちは水を作るのではありません。太古の深みを汲み上げているのです。"
             }
@@ -181,6 +190,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "“历经千年的水”",
+                "philosophyBody1": "在东海1,032米深处，存在着现代文明未曾触及的纯净。AETERNO捕捉这种深藏数世纪的太古精华，这种精华在数世纪的高压和低温下得以保存。",
+                "philosophyBody2": "它不仅仅是水。它是历史，是科学，是自然所能提供的最纯净的补水方式。",
                 "narration1": "当世界上所有的水都向污染妥协时，AETERNO进入了深深的沉黙。在光线都无法触及的1032米深渊，在那里熟成了数世纪的水不只是水分。它是唤醒你细胞的最原始生命力。",
                 "narration2": "我们不创造水；我们汲取太古深处的精华。"
             }
@@ -227,6 +239,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"Air yang telah mengalir selama seribu tahun.\"",
+                "philosophyBody1": "Jauh di dalam Laut Timur, 1.032 meter di bawah permukaan, terdapat kemurnian yang tak tersentuh oleh peradaban modern. Aeterno menangkap esensi murni ini, yang preserved dalam tekanan tinggi dan suhu rendah selama berabad-abad.",
+                "philosophyBody2": "Ini bukan sekadar air. Ini adalah sejarah, sains, dan bentuk hidrasi paling murni yang ditawarkan alam.",
                 "narration1": "Ketika semua air di dunia berkompromi dengan polusi, AETERNO masuk ke dalam keheningan yang dalam. Sebuah jurang sedalam 1.032m yang bahkan cahaya tidak bisa mencapainya. Air yang menua di sana selama berabad-abad bukan sekadar hidrasi. Itu adalah kekuatan hidup paling primordial yang membangunkan sel-sel Anda.",
                 "narration2": "Kami tidak menciptakan air; kami menimba dari kedalaman purba."
             }
@@ -273,6 +288,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"مياه سافرت لمسافات عبر ألف عام\"",
+                "philosophyBody1": "في أعماق البحر الشرقي، على عمق 1,032 متراً تحت السطح، يوجد نقاء لم تمسه الحضارة الحديثة. تلتقي شركة إتيرنو بهذا الجوهر الأصيل، المحفوظ في ضغط عالٍ ودرجة حرارة منخفضة لعدة قرون.",
+                "philosophyBody2": "إنها ليست مجرد ماء. إنها تاريخ وعلم، وأنقى شكل من أشكال الترطيب التي تقدمها الطبيعة.",
                 "narration1": "عندما تساومت جميع مياه العالم مع التلوث، دخلت AETERNO في صمت عميق. هاوية بعمق 1,032 متراً حيث لا يمكن حتى للضوء أن يصل إليها. الماء الذي تعتق هناك لقرون ليس مجرد ترطيب. إنه قوة الحياة الأكثر أزلية التي توقظ خلاياك.",
                 "narration2": "نحن لا نصنع الماء؛ بل نستخلصه من الأعماق الأزلية."
             }
@@ -319,6 +337,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"Agua que ha viajado durante mil años.\"",
+                "philosophyBody1": "En las profundidades del Mar del Este, a 1.032 metros bajo la superficie, existe una pureza no tocada por la civilización moderna. Aeterno captura esta esencia prístina, conservada en alta presión y baja temperatura durante siglos.",
+                "philosophyBody2": "No es solo agua. Es historia, ciencia y la forma más pura de hidratación que la naturaleza puede ofrecer.",
                 "narration1": "Cuando todas las aguas del mundo se vieron comprometidas por la contaminación, AETERNO entró en un profundo silencio. Un abismo de 1.032m de profundidad al que ni siquiera la luz puede llegar. El agua que ha envejecido allí durante siglos no es solo hidratación. Es la fuerza vital más primordial que despierta tus células.",
                 "narration2": "Nosotros no creamos el agua; la extraemos de las profundidades primordiales."
             }
@@ -365,6 +386,9 @@ const resources = {
                 }
             },
             "brandStory": {
+                "philosophyTitle": "\"De l'eau qui a voyagé pendant mille ans.\"",
+                "philosophyBody1": "Dans les profondeurs de la Mer de l'Est, à 1 032 mètres sous la surface, existe une pureté préservée de la civilisation moderne. Aeterno capture cette essence originelle, préservée par une haute pression et une basse température depuis des siècles.",
+                "philosophyBody2": "Ce n'est pas seulement de l'eau. C'est l'histoire, la science et la forme d'hydratation la plus pure que la nature puisse offrir.",
                 "narration1": "Quand toutes les eaux du monde ont été compromises par la pollution, AETERNO est entré dans un profond silence. Un abysse de 1 032 m de profondeur où même la lumière ne peut parvenir. L'eau qui y a vieilli pendant des siècles n'est pas qu'une simple hydratation. C'est la force vitale la plus primordiale qui éveille vos cellules.",
                 "narration2": "Nous ne créons pas l'eau ; nous la puisons dans les profondeurs primordiales."
             }
