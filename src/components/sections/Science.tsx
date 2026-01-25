@@ -3,7 +3,7 @@ import { Activity, Database, Droplet } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../common/Button';
-import scienceComparisonImg from '../../assets/images/science-comparison.png';
+import scienceGraphImg from '../../assets/images/science-graph.png';
 import waterDensityImg from '../../assets/images/water-density.jpg';
 
 const stats = [
@@ -96,13 +96,59 @@ export function Science() {
 
                 {/* Science Visualization Section */}
                 <div className="space-y-24 mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100"
-                    >
-                        <img src={scienceComparisonImg} alt="Science Comparison" className="w-full h-auto" />
-                    </motion.div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-6 flex flex-col justify-center"
+                        >
+                            <h4 className="text-BRAND-deepBlue font-bold mb-4 text-center">{t('science.table.classification')}</h4>
+                            <img src={scienceGraphImg} alt="Science Graph" className="w-full h-auto" />
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className="flex flex-col"
+                        >
+                            <div className="overflow-hidden rounded-3xl border border-gray-100 shadow-2xl h-full flex flex-col">
+                                <table className="w-full h-full text-sm text-left">
+                                    <thead className="text-xs text-white uppercase bg-BRAND-deepBlue">
+                                        <tr>
+                                            <th scope="col" className="px-6 py-4">{t('science.table.depth')}</th>
+                                            <th scope="col" className="px-6 py-4">{t('science.table.classification')}</th>
+                                            <th scope="col" className="px-6 py-4">{t('science.table.organic')}</th>
+                                            <th scope="col" className="px-6 py-4">{t('science.table.micro')}</th>
+                                            <th scope="col" className="px-6 py-4">{t('science.table.safety')}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-white">
+                                        <tr className="border-b hover:bg-gray-50 transition-colors">
+                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">0m (Surface)</th>
+                                            <td className="px-6 py-4">{t('science.table.surface')}</td>
+                                            <td className="px-6 py-4 text-red-500 font-bold">{t('science.table.high')}</td>
+                                            <td className="px-6 py-4">{t('science.table.detected')}</td>
+                                            <td className="px-6 py-4 font-bold text-gray-400 text-xl">C</td>
+                                        </tr>
+                                        <tr className="border-b hover:bg-gray-50 transition-colors">
+                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">200m</th>
+                                            <td className="px-6 py-4 text-xs">{t('science.table.threshold')}</td>
+                                            <td className="px-6 py-4 text-orange-400 font-bold">{t('science.table.low')}</td>
+                                            <td className="px-6 py-4">{t('science.table.risk')}</td>
+                                            <td className="px-6 py-4 font-bold text-BRAND-teal text-xl">B</td>
+                                        </tr>
+                                        <tr className="bg-BRAND-deepBlue/5 hover:bg-BRAND-deepBlue/10 transition-colors">
+                                            <th scope="row" className="px-6 py-4 font-bold text-BRAND-deepBlue whitespace-nowrap">1,032m</th>
+                                            <td className="px-6 py-4 font-bold text-BRAND-deepBlue">{t('science.table.purezone')}</td>
+                                            <td className="px-6 py-4 font-bold text-BRAND-aqua">{t('science.table.zero')}</td>
+                                            <td className="px-6 py-4 font-bold text-BRAND-aqua">{t('science.table.notDetected')}</td>
+                                            <td className="px-6 py-4 font-bold text-BRAND-deepBlue text-3xl">A+</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </motion.div>
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <motion.div

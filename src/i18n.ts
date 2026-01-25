@@ -15,7 +15,23 @@ const resources = {
             "cta": { "inquire": "Inquire OEM", "balance": "Balance Your Body", "contact": "Contact Us Now" },
             "science": {
                 "purity_depth1": "As the depth increases, nutrient salts are concentrated and man-made pollutants disappear.",
-                "purity_depth2": "1,000m deep sea is a depth that domestic sewage and industrial pollutants cannot physically reach."
+                "purity_depth2": "1,000m deep sea is a depth that domestic sewage and industrial pollutants cannot physically reach.",
+                "table": {
+                    "depth": "Depth",
+                    "classification": "Classification",
+                    "organic": "Organic Matter",
+                    "micro": "Micro Plastics",
+                    "safety": "Safety Grade",
+                    "surface": "Surface",
+                    "threshold": "Deep Sea Threshold",
+                    "purezone": "AETERNO Pure Zone",
+                    "high": "High",
+                    "low": "Low",
+                    "zero": "0.0 mg/L",
+                    "detected": "Detected",
+                    "risk": "Risk Exist",
+                    "notDetected": "Not Detected"
+                }
             },
             "news": {
                 "title": "Media Center",
@@ -64,7 +80,23 @@ const resources = {
             "cta": { "inquire": "OEM 문의하기", "balance": "Balance Your Body", "contact": "지금 상담하기" },
             "science": {
                 "purity_depth1": "수심이 깊어질수록 영양염류는 농축되고, 수심이 깊어질 수록 인위적 오염물질은 사라지며,",
-                "purity_depth2": "심해 1,000m는 생활하수, 산업 오염물질이 물리적으로 도달할 수 없는 깊이입니다."
+                "purity_depth2": "심해 1,000m는 생활하수, 산업 오염물질이 물리적으로 도달할 수 없는 깊이입니다.",
+                "table": {
+                    "depth": "Depth (깊이)",
+                    "classification": "Classification (구분)",
+                    "organic": "Organic Matter (유기물)",
+                    "micro": "Micro Plastics (미세플라스틱)",
+                    "safety": "Safety Grade (안전 등급)",
+                    "surface": "표층수 (Surface)",
+                    "threshold": "해양심층수 기준 (Deep Sea Threshold)",
+                    "purezone": "AETERNO Pure Zone",
+                    "high": "High",
+                    "low": "Low",
+                    "zero": "0.0 mg/L",
+                    "detected": "Detected",
+                    "risk": "Risk Exist",
+                    "notDetected": "Not Detected"
+                }
             },
             "news": {
                 "title": "미디어 센터",
@@ -113,7 +145,23 @@ const resources = {
             "cta": { "inquire": "OEMのお問い合わせ", "balance": "Balance Your Body", "contact": "今すぐ相談する" },
             "science": {
                 "purity_depth1": "水深が深くなるほど栄養塩類は濃縮され、人為的な汚染物質は消えていきます。",
-                "purity_depth2": "深海1,000mは、生活排水や産業汚染物質が物理的に到達できない深さです。"
+                "purity_depth2": "深海1,000mは、生活排水や産業汚染物質が物理的に到達できない深さです。",
+                "table": {
+                    "depth": "水深 (Depth)",
+                    "classification": "区分 (Classification)",
+                    "organic": "有機物 (Organic Matter)",
+                    "micro": "マイクロプラスチック (Micro Plastics)",
+                    "safety": "安全等級 (Safety Grade)",
+                    "surface": "表層水 (Surface)",
+                    "threshold": "海洋深層水基準 (Deep Sea Threshold)",
+                    "purezone": "AETERNO Pure Zone",
+                    "high": "高 (High)",
+                    "low": "低 (Low)",
+                    "zero": "0.0 mg/L",
+                    "detected": "検出 (Detected)",
+                    "risk": "リスクあり (Risk Exist)",
+                    "notDetected": "不検出 (Not Detected)"
+                }
             },
             "news": {
                 "title": "メディアセンター",
@@ -162,7 +210,23 @@ const resources = {
             "cta": { "inquire": "OEM咨询", "balance": "Balance Your Body", "contact": "立即咨询" },
             "science": {
                 "purity_depth1": "随着深度增加，营养盐富集，人为污染物消失，",
-                "purity_depth2": "1,000米深海是生活污水和工业污染物物理上无法到达的深度。"
+                "purity_depth2": "1,000米深海是生活污水和工业污染物物理上无法到达的深度。",
+                "table": {
+                    "depth": "深度 (Depth)",
+                    "classification": "分类 (Classification)",
+                    "organic": "有机物 (Organic Matter)",
+                    "micro": "微塑料 (Micro Plastics)",
+                    "safety": "安全等级 (Safety Grade)",
+                    "surface": "表层水 (0m Surface)",
+                    "threshold": "海洋深层水标准 (Deep Sea Threshold)",
+                    "purezone": "AETERNO 纯净区 (Pure Zone)",
+                    "high": "高 (High)",
+                    "low": "低 (Low)",
+                    "zero": "0.0 mg/L",
+                    "detected": "检出 (Detected)",
+                    "risk": "存在风险 (Risk Exist)",
+                    "notDetected": "未检出 (Not Detected)"
+                }
             },
             "news": {
                 "title": "媒体中心",
@@ -211,7 +275,23 @@ const resources = {
             "cta": { "inquire": "Pertanyaan OEM", "balance": "Balance Your Body", "contact": "Hubungi Kami Sekarang" },
             "science": {
                 "purity_depth1": "Seiring bertambahnya kedalaman, garam nutrisi terkonsentrasi dan polutan buatan manusia menghilang,",
-                "purity_depth2": "Laut dalam 1.000m adalah kedalaman yang secara fisik tidak dapat dijangkau oleh limbah domestik dan polutan industri."
+                "purity_depth2": "Laut dalam 1.000m adalah kedalaman yang secara fisik tidak dapat dijangkau oleh limbah domestik dan polutan industri.",
+                "table": {
+                    "depth": "Kedalaman (Depth)",
+                    "classification": "Klasifikasi (Classification)",
+                    "organic": "Bahan Organik (Organic Matter)",
+                    "micro": "Mikroplastik (Micro Plastics)",
+                    "safety": "Tingkat Keamanan (Safety Grade)",
+                    "surface": "Permukaan (Surface)",
+                    "threshold": "Batas Laut Dalam (Deep Sea Threshold)",
+                    "purezone": "Zona Murni AETERNO",
+                    "high": "Tinggi (High)",
+                    "low": "Rendah (Low)",
+                    "zero": "0.0 mg/L",
+                    "detected": "Terdeteksi (Detected)",
+                    "risk": "Ada Risiko (Risk Exist)",
+                    "notDetected": "Tidak Terdeteksi (Not Detected)"
+                }
             },
             "news": {
                 "title": "Pusat Media",
@@ -260,7 +340,23 @@ const resources = {
             "cta": { "inquire": "استفسار OEM", "balance": "Balance Your Body", "contact": "اتصل بنا الآن" },
             "science": {
                 "purity_depth1": "مع زيادة العمق تتركز الأملاح المغذية وتختفي الملوثات البشرية،",
-                "purity_depth2": "عمق 1,000 متر في البحر هو عمق لا يمكن لمياه الصرف الصحي والملوثات الصناعية الوصول إليه فيزيائياً."
+                "purity_depth2": "عمق 1,000 متر في البحر هو عمق لا يمكن لمياه الصرف الصحي والملوثات الصناعية الوصول إليه فيزيائياً.",
+                "table": {
+                    "depth": "العمق (Depth)",
+                    "classification": "التصنيف (Classification)",
+                    "organic": "المادة العضوية (Organic Matter)",
+                    "micro": "البلاستيك الدقيق (Micro Plastics)",
+                    "safety": "درجة الأمان (Safety Grade)",
+                    "surface": "السطح (Surface)",
+                    "threshold": "حد البحر العميق (Deep Sea Threshold)",
+                    "purezone": "منطقة AETERNO النقية",
+                    "high": "عالي (High)",
+                    "low": "منخفض (Low)",
+                    "zero": "0.0 ملغ/لتر",
+                    "detected": "مكتشف (Detected)",
+                    "risk": "خطر موجود (Risk Exist)",
+                    "notDetected": "غير مكتشف (Not Detected)"
+                }
             },
             "news": {
                 "title": "المركز الإعلامي",
@@ -309,7 +405,23 @@ const resources = {
             "cta": { "inquire": "Consulta OEM", "balance": "Balance Your Body", "contact": "Contáctanos Ahora" },
             "science": {
                 "purity_depth1": "A medida que aumenta la profundidad, las sales nutrientes se concentran y los contaminantes artificiales desaparecen,",
-                "purity_depth2": "El mar profundo a 1.000 m es una profundidad a la que las aguas residuales domésticas e industriales no pueden llegar físicamente."
+                "purity_depth2": "El mar profundo a 1.000 m es una profundidad a la que las aguas residuales domésticas e industriales no pueden llegar físicamente.",
+                "table": {
+                    "depth": "Profundidad (Depth)",
+                    "classification": "Clasificación (Classification)",
+                    "organic": "Materia Orgánica (Organic Matter)",
+                    "micro": "Microplásticos (Micro Plastics)",
+                    "safety": "Grado de Seguridad (Safety Grade)",
+                    "surface": "Superficie (Surface)",
+                    "threshold": "Umbral de Mar Profundo",
+                    "purezone": "AETERNO Zona Pura",
+                    "high": "Alta (High)",
+                    "low": "Baja (Low)",
+                    "zero": "0.0 mg/L",
+                    "detected": "Detectado",
+                    "risk": "Existe Riesgo",
+                    "notDetected": "No Detectado"
+                }
             },
             "news": {
                 "title": "Centro de Medios",
@@ -358,7 +470,23 @@ const resources = {
             "cta": { "inquire": "Demande OEM", "balance": "Balance Your Body", "contact": "Contactez-nous" },
             "science": {
                 "purity_depth1": "À mesure que la profondeur augmente, les sels nutritifs se concentrent et les polluants artificiels disparaissent,",
-                "purity_depth2": "La mer profonde à 1 000 m est une profondeur que les eaux usées domestiques et les polluants industriels ne peuvent physiquement pas atteindre."
+                "purity_depth2": "La mer profonde à 1 000 m est une profondeur que les eaux usées domestiques et les polluants industriels ne peuvent physiquement pas atteindre.",
+                "table": {
+                    "depth": "Profondeur (Depth)",
+                    "classification": "Classification",
+                    "organic": "Matière Organique (Organic Matter)",
+                    "micro": "Microplastiques (Micro Plastics)",
+                    "safety": "Niveau de Sécurité (Safety Grade)",
+                    "surface": "Surface",
+                    "threshold": "Seuil de Mer Profonde",
+                    "purezone": "AETERNO Zone Pure",
+                    "high": "Élevé (High)",
+                    "low": "Faible (Low)",
+                    "zero": "0.0 mg/L",
+                    "detected": "Détecté",
+                    "risk": "Risque Existant",
+                    "notDetected": "Non Détecté"
+                }
             },
             "news": {
                 "title": "Centre de Médias",
