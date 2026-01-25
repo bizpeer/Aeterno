@@ -13,6 +13,10 @@ const resources = {
             "nav": { "brandData": "Brand Story", "science": "Science", "products": "Products", "engineering": "Engineering", "contact": "Contact" },
             "footer": { "brandDesc": "Pure Depth. Intelligent Hydration.\n1,032m Deep Ocean Water from the East Sea.", "company": "Company", "legal": "Legal", "followUs": "Follow Us", "rights": "All rights reserved.", "designed": "Designed for Premium Hydration." },
             "cta": { "inquire": "Inquire OEM", "balance": "Balance Your Body", "contact": "Contact Us Now" },
+            "science": {
+                "purity_depth1": "As the depth increases, nutrient salts are concentrated and man-made pollutants disappear.",
+                "purity_depth2": "1,000m deep sea is a depth that domestic sewage and industrial pollutants cannot physically reach."
+            },
             "news": {
                 "title": "Media Center",
                 "video": "Video Materials",
@@ -51,6 +55,10 @@ const resources = {
             "nav": { "brandData": "브랜드 스토리", "science": "과학", "products": "제품", "engineering": "엔지니어링", "contact": "문의하기" },
             "footer": { "brandDesc": "순수한 깊이. 지능적인 수분 공급.\n동해 수심 1,032m 초심층수.", "company": "회사", "legal": "법적 고지", "followUs": "소셜 미디어", "rights": "All rights reserved.", "designed": "프리미엄 수분 보충을 위해 설계되었습니다." },
             "cta": { "inquire": "OEM 문의하기", "balance": "Balance Your Body", "contact": "지금 상담하기" },
+            "science": {
+                "purity_depth1": "수심이 깊어질수록 영양염류는 농축되고, 수심이 깊어질 수록 인위적 오염물질은 사라지며,",
+                "purity_depth2": "심해 1,000m는 생활하수, 산업 오염물질이 물리적으로 도달할 수 없는 깊이입니다."
+            },
             "news": {
                 "title": "미디어 센터",
                 "video": "영상 자료",
@@ -89,6 +97,10 @@ const resources = {
             "nav": { "brandData": "ブランドストーリー", "science": "科学", "products": "製品", "engineering": "エンジニアリング", "contact": "お問い合わせ" },
             "footer": { "brandDesc": "純粋な深み。インテリジェントな水分補給。\n東海の水深1,032mからの海洋深層水。", "company": "会社", "legal": "法的通知", "followUs": "フォローする", "rights": "All rights reserved.", "designed": "プレミアムな水分補給のために設計されました。" },
             "cta": { "inquire": "OEMのお問い合わせ", "balance": "Balance Your Body", "contact": "今すぐ相談する" },
+            "science": {
+                "purity_depth1": "水深が深くなるほど栄養塩類は濃縮され、人為的な汚染物質は消えていきます。",
+                "purity_depth2": "深海1,000mは、生活排水や産業汚染物質が物理的に到達できない深さです。"
+            },
             "news": {
                 "title": "メディアセンター",
                 "video": "動画資料",
@@ -127,6 +139,10 @@ const resources = {
             "nav": { "brandData": "品牌故事", "science": "科学", "products": "产品", "engineering": "工程", "contact": "联系我们" },
             "footer": { "brandDesc": "纯净深度。智能补水。\n来自东海1,032米深处的海洋深层水。", "company": "公司", "legal": "法律声明", "followUs": "关注我们", "rights": "All rights reserved.", "designed": "专为优质补水设计。" },
             "cta": { "inquire": "OEM咨询", "balance": "Balance Your Body", "contact": "立即咨询" },
+            "science": {
+                "purity_depth1": "随着深度增加，营养盐富集，人为污染物消失，",
+                "purity_depth2": "1,000米深海是生活污水和工业污染物物理上无法到达的深度。"
+            },
             "news": {
                 "title": "媒体中心",
                 "video": "视频资料",
@@ -165,6 +181,10 @@ const resources = {
             "nav": { "brandData": "Kisah Merek", "science": "Sains", "products": "Produk", "engineering": "Teknik", "contact": "Kontak" },
             "footer": { "brandDesc": "Kedalaman Murni. Hidrasi Cerdas.\nAir Laut Dalam 1.032m dari Laut Timur.", "company": "Perusahaan", "legal": "Hukum", "followUs": "Ikuti Kami", "rights": "All rights reserved.", "designed": "Dirancang untuk Hidrasi Premium." },
             "cta": { "inquire": "Pertanyaan OEM", "balance": "Balance Your Body", "contact": "Hubungi Kami Sekarang" },
+            "science": {
+                "purity_depth1": "Seiring bertambahnya kedalaman, garam nutrisi terkonsentrasi dan polutan buatan manusia menghilang,",
+                "purity_depth2": "Laut dalam 1.000m adalah kedalaman yang secara fisik tidak dapat dijangkau oleh limbah domestik dan polutan industri."
+            },
             "news": {
                 "title": "Pusat Media",
                 "video": "Materi Video",
@@ -203,6 +223,10 @@ const resources = {
             "nav": { "brandData": "قصة العلامة التجارية", "science": "علم", "products": "منتجات", "engineering": "هندسة", "contact": "اتصل بنا" },
             "footer": { "brandDesc": "عمق نقي. ترطيب ذكي.\nمياه المحيط العميقة من عمق 1,032 متر في البحر الشرقي.", "company": "شركة", "legal": "قانوني", "followUs": "تابعنا", "rights": "All rights reserved.", "designed": "صمم للترطيب الممتاز." },
             "cta": { "inquire": "استفسار OEM", "balance": "Balance Your Body", "contact": "اتصل بنا الآن" },
+            "science": {
+                "purity_depth1": "مع زيادة العمق تتركز الأملاح المغذية وتختفي الملوثات البشرية،",
+                "purity_depth2": "عمق 1,000 متر في البحر هو عمق لا يمكن لمياه الصرف الصحي والملوثات الصناعية الوصول إليه فيزيائياً."
+            },
             "news": {
                 "title": "المركز الإعلامي",
                 "video": "مواد الفيديو",
@@ -241,6 +265,10 @@ const resources = {
             "nav": { "brandData": "Historia de la Marca", "science": "Ciencia", "products": "Productos", "engineering": "Ingeniería", "contact": "Contacto" },
             "footer": { "brandDesc": "Profundidad Pura. Hidratación Inteligente.\nAgua de Mar Profunda de 1,032m del Mar del Este.", "company": "Compañía", "legal": "Legal", "followUs": "Síguenos", "rights": "All rights reserved.", "designed": "Diseñado para una Hidratación Premium." },
             "cta": { "inquire": "Consulta OEM", "balance": "Balance Your Body", "contact": "Contáctanos Ahora" },
+            "science": {
+                "purity_depth1": "A medida que aumenta la profundidad, las sales nutrientes se concentran y los contaminantes artificiales desaparecen,",
+                "purity_depth2": "El mar profundo a 1.000 m es una profundidad a la que las aguas residuales domésticas e industriales no pueden llegar físicamente."
+            },
             "news": {
                 "title": "Centro de Medios",
                 "video": "Materiales de Video",
@@ -279,6 +307,10 @@ const resources = {
             "nav": { "brandData": "Histoire de la Marque", "science": "Science", "products": "Produits", "engineering": "Ingénierie", "contact": "Contact" },
             "footer": { "brandDesc": "Profondeur Pure. Hydratation Intelligente.\nEau de Mer Profonde de 1 032m de la Mer de l'Est.", "company": "Entreprise", "legal": "Légal", "followUs": "Suivez-nous", "rights": "All rights reserved.", "designed": "Conçu pour une Hydratation Premium." },
             "cta": { "inquire": "Demande OEM", "balance": "Balance Your Body", "contact": "Contactez-nous" },
+            "science": {
+                "purity_depth1": "À mesure que la profondeur augmente, les sels nutritifs se concentrent et les polluants artificiels disparaissent,",
+                "purity_depth2": "La mer profonde à 1 000 m est une profondeur que les eaux usées domestiques et les polluants industriels ne peuvent physiquement pas atteindre."
+            },
             "news": {
                 "title": "Centre de Médias",
                 "video": "Matériels Vidéo",
