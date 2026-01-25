@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Activity, Database, Droplet } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../common/Button';
 import scienceComparisonImg from '../../assets/images/science-comparison.png';
 import waterDensityImg from '../../assets/images/water-density.jpg';
@@ -31,6 +32,9 @@ const stats = [
 
 export function Science() {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const { lang } = useParams<{ lang: string }>();
+    const currentLang = lang || 'ko';
 
     return (
         <section className="py-32 bg-white text-BRAND-deepBlue">
@@ -124,7 +128,7 @@ export function Science() {
 
                 <div className="text-center">
                     <Button
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => navigate(`/${currentLang}/news`)}
                         size="lg"
                         className="shadow-2xl bg-BRAND-deepBlue text-white hover:bg-BRAND-deepBlue/90 px-12 py-8 text-xl rounded-full"
                     >

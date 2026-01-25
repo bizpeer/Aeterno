@@ -71,6 +71,7 @@ export function Navbar() {
         { key: 'science', to: `/${currentLang}/science` },
         { key: 'products', to: `/${currentLang}/products` },
         { key: 'engineering', to: `/${currentLang}/engineering` },
+        { key: 'news', to: `/${currentLang}/news` },
         { key: 'contact', to: `/${currentLang}/contact` },
     ];
 
