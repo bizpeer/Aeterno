@@ -36,7 +36,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.8 }}
-                    className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
+                    className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight whitespace-pre-line"
                 >
                     {t('welcome')}
                 </motion.h1>
@@ -45,15 +45,30 @@ export function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.2 }}
-                    className="text-white/80 max-w-lg mx-auto text-lg font-light mb-12"
+                    className="text-BRAND-aqua max-w-lg mx-auto text-lg md:text-xl font-light mb-12 tracking-wide"
                 >
-                    Deep Ocean Mineral Water
+                    {t('hero.subTitle')}
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 1.5 }}
+                    className="space-y-6 mb-16"
+                >
+                    <p className="text-white/90 text-base md:text-lg font-light leading-relaxed whitespace-pre-line italic">
+                        {t('hero.essence1')}
+                    </p>
+                    <div className="w-12 h-[1px] bg-white/30 mx-auto" />
+                    <p className="text-white/90 text-base md:text-lg font-light leading-relaxed whitespace-pre-line">
+                        {t('hero.essence2')}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 1.8 }}
                     className="flex flex-col md:flex-row gap-4 mb-16"
                 >
                     <Button
@@ -74,7 +89,7 @@ export function Hero() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 1.8 }}
+                    transition={{ duration: 1, delay: 2.1 }}
                 >
                     <div className="animate-bounce text-white/50">
                         <span className="text-xs tracking-widest uppercase">Scroll</span>

@@ -4,7 +4,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     en: {
         translation: {
-            "welcome": "Pure Depth. Intelligent Hydration.",
+            "welcome": "Primordial Purity. Intelligent Hydration.",
+            "hero": {
+                "subTitle": "Premium Deep Ocean Mineral Water",
+                "essence1": "The essence of water lies in its depth.\nAnd that depth is felt by your body first.",
+                "essence2": "We do not create water;\nwe draw from the primordial depths."
+            },
             "nav": { "brandData": "Brand Story", "science": "Science", "products": "Products", "engineering": "Engineering", "contact": "Contact" },
             "footer": { "brandDesc": "Pure Depth. Intelligent Hydration.\n1,032m Deep Ocean Water from the East Sea.", "company": "Company", "legal": "Legal", "followUs": "Follow Us", "rights": "All rights reserved.", "designed": "Designed for Premium Hydration." },
             "cta": { "inquire": "Inquire OEM", "sample": "Request Sample", "contact": "Contact Us Now" }
@@ -12,7 +17,12 @@ const resources = {
     },
     ko: {
         translation: {
-            "welcome": "순수한 깊이. 지능적인 수분 공급.",
+            "welcome": "태초의 순수한 깊이, 지능적인 수분공급",
+            "hero": {
+                "subTitle": "Premium Deep Ocean Mineral Water",
+                "essence1": "물의 본질은 깊이에 있습니다.\n그리고 그 깊이는, 당신의 몸이 먼저 알아봅니다.",
+                "essence2": "우리는 물을 만드는 것이 아니라,\n태고의 깊이를 길어 올립니다."
+            },
             "nav": { "brandData": "브랜드 스토리", "science": "과학", "products": "제품", "engineering": "엔지니어링", "contact": "문의하기" },
             "footer": { "brandDesc": "순수한 깊이. 지능적인 수분 공급.\n동해 수심 1,032m 초심층수.", "company": "회사", "legal": "법적 고지", "followUs": "소셜 미디어", "rights": "All rights reserved.", "designed": "프리미엄 수분 보충을 위해 설계되었습니다." },
             "cta": { "inquire": "OEM 문의하기", "sample": "샘플 요청하기", "contact": "지금 상담하기" }
