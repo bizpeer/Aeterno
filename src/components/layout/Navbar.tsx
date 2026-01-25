@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { clsx } from 'clsx';
 import { Button } from '../common/Button';
+import logoImg from '../../assets/images/logo.png';
 
 export function Navbar() {
     const { t, i18n } = useTranslation();
@@ -83,8 +84,8 @@ export function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link to={`/${currentLang}`} className="text-2xl font-serif font-bold tracking-widest text-white">
-                    AETERNO
+                <Link to={`/${currentLang}`} className="flex items-center">
+                    <img src={logoImg} alt="AETERNO" className="h-8 md:h-10 w-auto brightness-0 invert" />
                 </Link>
 
                 {/* Desktop Menu */}
