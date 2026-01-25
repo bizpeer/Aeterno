@@ -1,8 +1,11 @@
 import { useTranslation } from 'react-i18next';
+import { Link, useParams } from 'react-router-dom';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 export function Footer() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const { lang } = useParams<{ lang: string }>();
+    const currentLang = lang || i18n.language || 'ko';
 
     return (
         <footer className="bg-BRAND-deepBlue text-white pt-16 pb-8 border-t border-white/10">
@@ -21,16 +24,16 @@ export function Footer() {
                         <div>
                             <h4 className="font-bold mb-4 uppercase text-sm tracking-wider">{t('footer.company')}</h4>
                             <ul className="space-y-2 text-sm text-white/60">
-                                <li><a href="/brand-story" className="hover:text-BRAND-aqua transition-colors">About Us</a></li>
-                                <li><a href="/career" className="hover:text-BRAND-aqua transition-colors">Careers</a></li>
-                                <li><a href="/contact" className="hover:text-BRAND-aqua transition-colors">Contact</a></li>
+                                <li><Link to={`/${currentLang}/brand-story`} className="hover:text-BRAND-aqua transition-colors">About Us</Link></li>
+                                <li><Link to={`/${currentLang}/career`} className="hover:text-BRAND-aqua transition-colors">Careers</Link></li>
+                                <li><Link to={`/${currentLang}/contact`} className="hover:text-BRAND-aqua transition-colors">Contact</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-bold mb-4 uppercase text-sm tracking-wider">{t('footer.legal')}</h4>
                             <ul className="space-y-2 text-sm text-white/60">
-                                <li><a href="/privacy" className="hover:text-BRAND-aqua transition-colors">Privacy Policy</a></li>
-                                <li><a href="/terms" className="hover:text-BRAND-aqua transition-colors">Terms of Service</a></li>
+                                <li><Link to={`/${currentLang}/privacy`} className="hover:text-BRAND-aqua transition-colors">Privacy Policy</Link></li>
+                                <li><Link to={`/${currentLang}/terms`} className="hover:text-BRAND-aqua transition-colors">Terms of Service</Link></li>
                             </ul>
                         </div>
                     </div>

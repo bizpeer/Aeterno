@@ -47,16 +47,21 @@ export function Navbar() {
     ];
 
     const changeLanguage = (newLang: string) => {
-        const currentPath = window.location.pathname;
-        const pathSegments = currentPath.split('/').filter(Boolean);
+        // basename(/Aeterno)은 포함되지 않은 순수 경로를 가져옵니다.
+        const currentPath = window.location.hash.includes('#')
+            ? window.location.hash.split('#')[1]
+            : window.location.pathname.replace(import.meta.env.BASE_URL, '') || '/';
 
-        if (['ko', 'en', 'ja', 'zh', 'id', 'ar', 'es', 'fr'].includes(pathSegments[0])) {
-            pathSegments[0] = newLang;
+        const segments = currentPath.split('/').filter(Boolean);
+
+        // 첫 번째 세그먼트가 언어 코드인 경우 교체, 아니면 추가
+        if (segments.length > 0 && supportedLangs.some(l => l.code === segments[0])) {
+            segments[0] = newLang;
         } else {
-            pathSegments.unshift(newLang);
+            segments.unshift(newLang);
         }
 
-        navigate(`/${pathSegments.join('/')}`);
+        navigate(`/${segments.join('/')}`);
         setIsLangMenuOpen(false);
         setIsMobileMenuOpen(false);
     };
