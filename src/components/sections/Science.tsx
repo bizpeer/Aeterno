@@ -37,7 +37,7 @@ export function Science() {
     const currentLang = lang || 'ko';
 
     return (
-        <section className="py-32 bg-white text-BRAND-deepBlue">
+        <section className="py-32 bg-slate-50 text-BRAND-deepBlue">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
                     <span className="text-BRAND-teal text-sm font-bold tracking-widest uppercase mb-4 block">
@@ -78,7 +78,7 @@ export function Science() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.6 }}
-                            className="text-center p-8 bg-gray-50 rounded-2xl hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+                            className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
                         >
                             <div className="inline-flex items-center justify-center p-4 bg-BRAND-deepBlue/5 rounded-full mb-6">
                                 <stat.icon className="w-8 h-8 text-BRAND-deepBlue" />
@@ -111,7 +111,7 @@ export function Science() {
                             whileInView={{ opacity: 1, x: 0 }}
                             className="flex flex-col"
                         >
-                            <div className="overflow-hidden rounded-3xl border border-gray-100 shadow-2xl h-full flex flex-col">
+                            <div className="overflow-hidden rounded-3xl border border-gray-100 shadow-2xl h-full flex flex-col bg-white">
                                 <table className="w-full h-full text-sm text-left">
                                     <thead className="text-xs text-white uppercase bg-BRAND-deepBlue">
                                         <tr>
