@@ -19,6 +19,24 @@ const resources = {
                 "brochure": "Brochure & PDF",
                 "other": "Other Resources",
                 "download": "Download"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "Water created before the industrial age. Purity cannot be artificial. It is only discovered.",
+                "desalination": "AETERNO is produced with precisely controlled hardness through desalination and mineral concentration technology.",
+                "intake": {
+                    "title": "Ultra-Deep Intake",
+                    "desc": "Sourced from 1,032m depth, 17.5km offshore to ensure zero contamination."
+                },
+                "mineral": {
+                    "title": "Mineral Balancing",
+                    "desc": "World-class desalination and mineral concentration process."
+                },
+                "aseptic": {
+                    "title": "Aseptic Filling",
+                    "desc": "NASA-grade aseptic filling system for absolute safety."
+                }
             }
         }
     },
@@ -39,6 +57,24 @@ const resources = {
                 "brochure": "브로셔 및 PDF",
                 "other": "기타 자료",
                 "download": "다운로드"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "산업화 시대 이전 생성된 물. 순수함은 인위적일 수 없습니다. 단지 발견될 뿐입니다.",
+                "desalination": "탈염(Desalination) 및 미네랄 농축 기술을 통해 경도(Hardness)를 정밀하게 조절하여 생산합니다.",
+                "intake": {
+                    "title": "초심층 취수",
+                    "desc": "해안에서 17.5km, 수심 1,032m 아래에서 오염 없이 취수합니다."
+                },
+                "mineral": {
+                    "title": "미네랄 컨트롤",
+                    "desc": "세계 최고 수준의 탈염 및 미네랄 농축 공정입니다."
+                },
+                "aseptic": {
+                    "title": "무균 충진",
+                    "desc": "최첨단 무균 충진(Aseptic Filling) 시스템으로 안전을 보장합니다."
+                }
             }
         }
     },
@@ -59,6 +95,24 @@ const resources = {
                 "brochure": "パンフレット & PDF",
                 "other": "その他の資料",
                 "download": "ダウンロード"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "産業化時代以前に生成された水。純粋さは人為的であり得ません。ただ発見されるのみです。",
+                "desalination": "脱塩(Desalination)およびミネラル濃縮技術を通じて硬度(Hardness)を精密に調節して生産されます。",
+                "intake": {
+                    "title": "超深層取水",
+                    "desc": "海岸から17.5km、水深1,032m下から汚染なしに取水します。"
+                },
+                "mineral": {
+                    "title": "ミネラル制御",
+                    "desc": "世界最高水準の脱塩およびミネラル濃縮プロセスです。"
+                },
+                "aseptic": {
+                    "title": "無菌充填",
+                    "desc": "最先端の無菌充填(Aseptic Filling)システムで安全を保証します。"
+                }
             }
         }
     },
@@ -79,6 +133,24 @@ const resources = {
                 "brochure": "手册与 PDF",
                 "other": "其他资源",
                 "download": "下载"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "工业化时代之前生成的水。纯净无法人造，只能被发现。",
+                "desalination": "通过脱盐和矿物质浓缩技术精确控制硬度进行生产。",
+                "intake": {
+                    "title": "超深取水",
+                    "desc": "离岸17.5公里，从1,032米深处无污染取水。"
+                },
+                "mineral": {
+                    "title": "矿物质控制",
+                    "desc": "世界顶级的脱盐和矿物质浓缩工艺。"
+                },
+                "aseptic": {
+                    "title": "无菌灌装",
+                    "desc": "最先进的无菌灌装（Aseptic Filling）系统确保安全。"
+                }
             }
         }
     },
@@ -99,6 +171,24 @@ const resources = {
                 "brochure": "Brosur & PDF",
                 "other": "Sumber Daya Lainnya",
                 "download": "Unduh"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "Air yang tercipta sebelum era industrialisasi. Kemurnian tidak bisa dibuat-buat. Itu hanya bisa ditemukan.",
+                "desalination": "Dihasilkan dengan kekerasan yang dikontrol secara presisi melalui teknologi desalinasi dan konsentrasi mineral.",
+                "intake": {
+                    "title": "Pengambilan Sangat Dalam",
+                    "desc": "Diambil dari kedalaman 1.032m, 17,5km dari pantai untuk memastikan nol kontaminasi."
+                },
+                "mineral": {
+                    "title": "Penyeimbangan Mineral",
+                    "desc": "Proses desalinasi dan konsentrasi mineral kelas dunia."
+                },
+                "aseptic": {
+                    "title": "Pengisian Aseptik",
+                    "desc": "Sistem pengisian aseptik (Aseptic Filling) tercanggih untuk keamanan mutlak."
+                }
             }
         }
     },
@@ -119,6 +209,24 @@ const resources = {
                 "brochure": "كتيبات و PDF",
                 "other": "موارد أخرى",
                 "download": "تحميل"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "الماء الذي خلق قبل العصر الصناعي. النقاء لا يمكن تصنيعه، بل يكتشف فقط.",
+                "desalination": "يتم إنتاجه بصلابة محكومة بدقة من خلال تقنية تحلية المياه وتركيز المعادن.",
+                "intake": {
+                    "title": "سحب فائق العمق",
+                    "desc": "يتم الحصول عليه من عمق 1032 متراً، على بعد 17.5 كم من الشاطئ لضمان عدم التلوث."
+                },
+                "mineral": {
+                    "title": "توازن المعادن",
+                    "desc": "عملية تحلية المياه وتركيز المعادن بمستوى عالمي."
+                },
+                "aseptic": {
+                    "title": "تعبئة معقمة",
+                    "desc": "نظام التعبئة المعقمة (Aseptic Filling) الأكثر تقدماً لضمان السلامة المطلقة."
+                }
             }
         }
     },
@@ -139,6 +247,24 @@ const resources = {
                 "brochure": "Folletos y PDF",
                 "other": "Otros Recursos",
                 "download": "Descargar"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "Agua creada antes de la era industrial. La pureza no puede ser artificial. Solo se descubre.",
+                "desalination": "AETERNO se produce con una dureza controlada con precisión mediante tecnología de desalinización y concentración de minerales.",
+                "intake": {
+                    "title": "Toma Ultra Profunda",
+                    "desc": "Extraída de 1.032 m de profundidad, a 17,5 km de la costa para garantizar una contaminación cero."
+                },
+                "mineral": {
+                    "title": "Equilibrio Mineral",
+                    "desc": "Proceso de desalinización y concentración de minerales de clase mundial."
+                },
+                "aseptic": {
+                    "title": "Llenado Aséptico",
+                    "desc": "Sistema de llenado aséptico (Aseptic Filling) de última generación para una seguridad absoluta."
+                }
             }
         }
     },
@@ -159,6 +285,24 @@ const resources = {
                 "brochure": "Brochures & PDF",
                 "other": "Autres Ressources",
                 "download": "Télécharger"
+            },
+            "engineering": {
+                "title": "Best Marine Technology in Korea",
+                "subtitle": "Engineering for Purity",
+                "purity": "Une eau créée avant l'ère industrielle. La pureté ne peut être artificielle. Elle ne peut être que découverte.",
+                "desalination": "AETERNO est produit avec une dureté contrôlée avec précision grâce à une technologie de dessalement et de concentration minérale.",
+                "intake": {
+                    "title": "Prise Ultra-Profonde",
+                    "desc": "Puisée à 1 032 m de profondeur, à 17,5 km au large pour garantir une contamination nulle."
+                },
+                "mineral": {
+                    "title": "Équilibrage Minéral",
+                    "desc": "Processus de dessalement et de concentration minérale de classe mondiale."
+                },
+                "aseptic": {
+                    "title": "Remplissage Aseptique",
+                    "desc": "Système de remplissage aseptique (Aseptic Filling) de pointe pour une sécurité absolue."
+                }
             }
         }
     }
