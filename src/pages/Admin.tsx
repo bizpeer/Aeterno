@@ -122,7 +122,11 @@ export function Admin() {
                                     <tr key={inq.id} className="hover:bg-gray-50/50 transition-colors">
                                         <td className="px-6 py-4 text-sm text-gray-500">{inq.date}</td>
                                         <td className="px-6 py-4 font-medium">{inq.contactPoint}</td>
-                                        <td className="px-6 py-4 text-gray-600 truncate max-w-xs">{inq.message}</td>
+                                        <td className="px-6 py-4 text-gray-600 max-w-md">
+                                            <p className="line-clamp-3 whitespace-pre-line text-sm leading-relaxed">
+                                                {inq.message}
+                                            </p>
+                                        </td>
                                         <td className="px-6 py-4">
                                             <button
                                                 onClick={() => handleDelete(inq.id)}

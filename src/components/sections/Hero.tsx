@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../common/Button';
 // Using the deep sea image for background now
 import heroBg from '../../assets/images/deep-sea.jpg';
 
 export function Hero() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const { lang } = useParams<{ lang: string }>();
+    const currentLang = lang || i18n.language || 'ko';
+    const navigate = useNavigate();
 
     return (
         <section className="relative h-screen w-full overflow-hidden">
@@ -72,14 +76,14 @@ export function Hero() {
                     className="flex flex-col md:flex-row gap-4 mb-16"
                 >
                     <Button
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => navigate(`/${currentLang}/contact`)}
                         className="bg-BRAND-teal hover:bg-BRAND-teal/90 text-white min-w-[200px]"
                     >
                         {t('cta.inquire')}
                     </Button>
                     <Button
                         variant="outline"
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => navigate(`/${currentLang}/contact`)}
                         className="text-white border-white hover:bg-white hover:text-BRAND-deepBlue min-w-[200px]"
                     >
                         {t('cta.sample')}
