@@ -41,6 +41,10 @@ const resources = {
                     "title": "Aseptic Filling",
                     "desc": "NASA-grade aseptic filling system for absolute safety."
                 }
+            },
+            "brandStory": {
+                "narration1": "When all the waters of the world compromised with pollution, AETERNO entered into deep silence. An abyss 1,032m deep where even light cannot reach. The water aged there for centuries is not just hydration. It is the most primordial life force that awakens your cells.",
+                "narration2": "We do not create water; we draw from the primordial depths."
             }
         }
     },
@@ -83,6 +87,10 @@ const resources = {
                     "title": "무균 충진",
                     "desc": "최첨단 무균 충진(Aseptic Filling) 시스템으로 안전을 보장합니다."
                 }
+            },
+            "brandStory": {
+                "narration1": "세상의 모든 물이 오염과 타협할 때, 에테르노(AETERNO)는 깊은 침묵 속으로 들어갔습니다. 빛조차 닿지 않는 1,032m의 심연. 그곳에서 수세기의 시간 동안 숙성된 물은 단순한 수분이 아닙니다. 그것은 당신의 세포를 깨우는 가장 원초적인 생명력입니다.",
+                "narration2": "우리는 물을 만드는 것이 아니라, 태고의 깊이를 길어 올립니다."
             }
         }
     },
@@ -125,6 +133,10 @@ const resources = {
                     "title": "無菌充填",
                     "desc": "最先端の無菌充填(Aseptic Filling)システムで安全を保証します。"
                 }
+            },
+            "brandStory": {
+                "narration1": "世界のすべての水が汚染と妥協したとき、エテルノ(AETERNO)は深い沈黙の中へと入っていきました。光さえ届かない1,032mの深淵。そこで何世紀もの間熟成された水は、単なる水分ではありません。それはあなたの細胞を目覚めさせる、最も原始的な生命力です。",
+                "narration2": "私たちは水を作るのではありません。太古の深みを汲み上げているのです。"
             }
         }
     },
@@ -167,6 +179,10 @@ const resources = {
                     "title": "无菌灌装",
                     "desc": "最先进的无菌灌装（Aseptic Filling）系统确保安全。"
                 }
+            },
+            "brandStory": {
+                "narration1": "当世界上所有的水都向污染妥协时，AETERNO进入了深深的沉黙。在光线都无法触及的1032米深渊，在那里熟成了数世纪的水不只是水分。它是唤醒你细胞的最原始生命力。",
+                "narration2": "我们不创造水；我们汲取太古深处的精华。"
             }
         }
     },
@@ -209,6 +225,10 @@ const resources = {
                     "title": "Pengisian Aseptik",
                     "desc": "Sistem pengisian aseptik (Aseptic Filling) tercanggih untuk keamanan mutlak."
                 }
+            },
+            "brandStory": {
+                "narration1": "Ketika semua air di dunia berkompromi dengan polusi, AETERNO masuk ke dalam keheningan yang dalam. Sebuah jurang sedalam 1.032m yang bahkan cahaya tidak bisa mencapainya. Air yang menua di sana selama berabad-abad bukan sekadar hidrasi. Itu adalah kekuatan hidup paling primordial yang membangunkan sel-sel Anda.",
+                "narration2": "Kami tidak menciptakan air; kami menimba dari kedalaman purba."
             }
         }
     },
@@ -251,6 +271,10 @@ const resources = {
                     "title": "تعبئة معقمة",
                     "desc": "نظام التعبئة المعقمة (Aseptic Filling) الأكثر تقدماً لضمان السلامة المطلقة."
                 }
+            },
+            "brandStory": {
+                "narration1": "عندما تساومت جميع مياه العالم مع التلوث، دخلت AETERNO في صمت عميق. هاوية بعمق 1,032 متراً حيث لا يمكن حتى للضوء أن يصل إليها. الماء الذي تعتق هناك لقرون ليس مجرد ترطيب. إنه قوة الحياة الأكثر أزلية التي توقظ خلاياك.",
+                "narration2": "نحن لا نصنع الماء؛ بل نستخلصه من الأعماق الأزلية."
             }
         }
     },
@@ -293,6 +317,10 @@ const resources = {
                     "title": "Llenado Aséptico",
                     "desc": "Sistema de llenado aséptico (Aseptic Filling) de última generación para una seguridad absoluta."
                 }
+            },
+            "brandStory": {
+                "narration1": "Cuando todas las aguas del mundo se vieron comprometidas por la contaminación, AETERNO entró en un profundo silencio. Un abismo de 1.032m de profundidad al que ni siquiera la luz puede llegar. El agua que ha envejecido allí durante siglos no es solo hidratación. Es la fuerza vital más primordial que despierta tus células.",
+                "narration2": "Nosotros no creamos el agua; la extraemos de las profundidades primordiales."
             }
         }
     },
@@ -335,6 +363,10 @@ const resources = {
                     "title": "Remplissage Aseptique",
                     "desc": "Système de remplissage aseptique (Aseptic Filling) de pointe pour une sécurité absolue."
                 }
+            },
+            "brandStory": {
+                "narration1": "Quand toutes les eaux du monde ont été compromises par la pollution, AETERNO est entré dans un profond silence. Un abysse de 1 032 m de profondeur où même la lumière ne peut parvenir. L'eau qui y a vieilli pendant des siècles n'est pas qu'une simple hydratation. C'est la force vitale la plus primordiale qui éveille vos cellules.",
+                "narration2": "Nous ne créons pas l'eau ; nous la puisons dans les profondeurs primordiales."
             }
         }
     }
