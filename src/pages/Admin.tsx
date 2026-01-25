@@ -11,17 +11,20 @@ interface Inquiry {
 }
 
 export function Admin() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+        return sessionStorage.getItem('isAdminLoggedIn') === 'true';
+    });
     const [password, setPassword] = useState('');
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const [notification, setNotification] = useState<string | null>(null);
 
+    const loadData = () => {
+        const data = JSON.parse(localStorage.getItem('inquiries') || '[]');
+        setInquiries(data);
+    };
+
     useEffect(() => {
         // Load initial data
-        const loadData = () => {
-            const data = JSON.parse(localStorage.getItem('inquiries') || '[]');
-            setInquiries(data);
-        };
         loadData();
 
         // Simulate real-time notifications
@@ -37,11 +40,17 @@ export function Admin() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === 'admin123') {
+        if (password === 'sang@4478') {
             setIsLoggedIn(true);
+            sessionStorage.setItem('isAdminLoggedIn', 'true');
         } else {
-            alert('Invalid Password (Try: admin123)');
+            alert('Invalid Password');
         }
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        sessionStorage.removeItem('isAdminLoggedIn');
     };
 
     const handleDelete = (id: number) => {
@@ -57,7 +66,7 @@ export function Admin() {
                     <h2 className="text-2xl font-bold mb-6 text-center text-BRAND-deepBlue">Admin Login</h2>
                     <input
                         type="password"
-                        placeholder="Enter PIN (admin123)"
+                        placeholder="Enter PIN"
                         className="w-full px-4 py-3 border rounded-lg mb-4"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
@@ -82,7 +91,7 @@ export function Admin() {
                 <h1 className="text-xl font-bold">AETERNO Admin Center</h1>
                 <div className="flex items-center space-x-4">
                     <span className="text-sm bg-white/10 px-3 py-1 rounded-full">Status: Online</span>
-                    <Button variant="ghost" className="text-white hover:text-red-400" onClick={() => setIsLoggedIn(false)}>Logout</Button>
+                    <Button variant="ghost" className="text-white hover:text-red-400" onClick={handleLogout}>Logout</Button>
                 </div>
             </header>
 
@@ -101,7 +110,7 @@ export function Admin() {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                         <h2 className="font-bold text-lg">Inquiry List</h2>
-                        <Button size="sm" variant="outline" onClick={() => window.location.reload()}>Refresh</Button>
+                        <Button size="sm" variant="outline" onClick={loadData}>Refresh</Button>
                     </div>
                     <table className="w-full text-left">
                         <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
