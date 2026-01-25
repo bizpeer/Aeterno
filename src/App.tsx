@@ -9,6 +9,7 @@ import { Contact } from './components/sections/Contact';
 import { LangRedirect } from './components/common/LangRedirect';
 
 import { Admin } from './pages/Admin';
+import { News } from './pages/News';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/:lang/products" element={<Layout><Products /></Layout>} />
         <Route path="/:lang/engineering" element={<Layout><Engineering /></Layout>} />
         <Route path="/:lang/contact" element={<Layout><Contact /></Layout>} />
+        <Route path="/:lang/news" element={<Layout><News /></Layout>} />
         <Route path="/:lang/career" element={<Layout><div className="pt-32 pb-20 text-center text-white min-h-screen">Careers content is coming soon.</div></Layout>} />
         <Route path="/:lang/privacy" element={<Layout><div className="pt-32 pb-20 text-center text-white min-h-screen">Privacy Policy content is coming soon.</div></Layout>} />
         <Route path="/:lang/terms" element={<Layout><div className="pt-32 pb-20 text-center text-white min-h-screen">Terms of Service content is coming soon.</div></Layout>} />

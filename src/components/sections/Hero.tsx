@@ -83,10 +83,10 @@ export function Hero() {
                     </Button>
                     <Button
                         variant="outline"
-                        onClick={() => navigate(`/${currentLang}/contact`)}
+                        onClick={() => navigate(`/${currentLang}/news`)}
                         className="text-white border-white hover:bg-white hover:text-BRAND-deepBlue min-w-[200px]"
                     >
-                        {t('cta.sample')}
+                        {t('cta.balance')}
                     </Button>
                 </motion.div>
 

@@ -12,7 +12,14 @@ const resources = {
             },
             "nav": { "brandData": "Brand Story", "science": "Science", "products": "Products", "engineering": "Engineering", "contact": "Contact" },
             "footer": { "brandDesc": "Pure Depth. Intelligent Hydration.\n1,032m Deep Ocean Water from the East Sea.", "company": "Company", "legal": "Legal", "followUs": "Follow Us", "rights": "All rights reserved.", "designed": "Designed for Premium Hydration." },
-            "cta": { "inquire": "Inquire OEM", "sample": "Request Sample", "contact": "Contact Us Now" }
+            "cta": { "inquire": "Inquire OEM", "balance": "Balance Your Body", "contact": "Contact Us Now" },
+            "news": {
+                "title": "Media Center",
+                "video": "Video Materials",
+                "brochure": "Brochure & PDF",
+                "other": "Other Resources",
+                "download": "Download"
+            }
         }
     },
     ko: {
@@ -25,7 +32,14 @@ const resources = {
             },
             "nav": { "brandData": "브랜드 스토리", "science": "과학", "products": "제품", "engineering": "엔지니어링", "contact": "문의하기" },
             "footer": { "brandDesc": "순수한 깊이. 지능적인 수분 공급.\n동해 수심 1,032m 초심층수.", "company": "회사", "legal": "법적 고지", "followUs": "소셜 미디어", "rights": "All rights reserved.", "designed": "프리미엄 수분 보충을 위해 설계되었습니다." },
-            "cta": { "inquire": "OEM 문의하기", "sample": "샘플 요청하기", "contact": "지금 상담하기" }
+            "cta": { "inquire": "OEM 문의하기", "balance": "Balance Your Body", "contact": "지금 상담하기" },
+            "news": {
+                "title": "미디어 센터",
+                "video": "영상 자료",
+                "brochure": "브로셔 및 PDF",
+                "other": "기타 자료",
+                "download": "다운로드"
+            }
         }
     },
     ja: {
