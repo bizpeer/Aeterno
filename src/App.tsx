@@ -10,6 +10,7 @@ import { LangRedirect } from './components/common/LangRedirect';
 
 import { Admin } from './pages/Admin';
 import { News } from './pages/News';
+import { ProductDetail } from './pages/ProductDetail';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/:lang/brand-story" element={<Layout><BrandStory /></Layout>} />
         <Route path="/:lang/science" element={<Layout><Science /></Layout>} />
         <Route path="/:lang/products" element={<Layout><Products /></Layout>} />
+        <Route path="/:lang/products/:id" element={<Layout><ProductDetail /></Layout>} />
         <Route path="/:lang/engineering" element={<Layout><Engineering /></Layout>} />
         <Route path="/:lang/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/:lang/news" element={<Layout><News /></Layout>} />

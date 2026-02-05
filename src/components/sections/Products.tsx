@@ -1,13 +1,46 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../common/Button';
-import { useTranslation } from 'react-i18next';
-// Using placeholder or the copied file if it exists
-import productImg from '../../assets/images/product.png';
+import { supabase } from '../../lib/supabase';
+import { useNavigate, useParams } from 'react-router-dom';
+
+interface Product {
+    id: string;
+    name: string;
+    description: string;
+    images: string[];
+}
 
 export function Products() {
-    const { t } = useTranslation();
+    const navigate = useNavigate();
+    const { lang } = useParams();
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        loadProducts();
+    }, []);
+
+    const loadProducts = async () => {
+        setLoading(true);
+        const { data, error } = await supabase
+            .from('products')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error('Error loading products:', error);
+            setLoading(false);
+            return;
+        }
+        if (data) setProducts(data);
+        setLoading(false);
+    };
+
+    if (loading) return null;
+
     return (
-        <section className="py-32 bg-gray-50 text-BRAND-deepBlue">
+        <section id="products" className="py-32 bg-gray-50 text-BRAND-deepBlue">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
                     <span className="text-BRAND-teal text-sm font-bold tracking-widest uppercase mb-4 block">
@@ -21,67 +54,45 @@ export function Products() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    {/* Image */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="flex justify-center"
-                    >
-                        <img src={productImg} alt="Aeterno Bottle" className="max-w-xs md:max-w-md drop-shadow-2xl" />
-                    </motion.div>
-
-                    {/* Content */}
-                    <div className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    {products.map((product, index) => (
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            key={product.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all group flex flex-col"
                         >
-                            <h3 className="text-3xl font-serif font-bold mb-4">Aeterno Soft</h3>
-                            <p className="text-gray-600 mb-4">
-                                Light, smooth, and refreshing. Perfect for daily hydration.
+                            <div className="aspect-square mb-8 overflow-hidden rounded-2xl bg-gray-50 flex items-center justify-center p-4">
+                                <img
+                                    src={product.images[0]}
+                                    alt={product.name}
+                                    className="max-h-full object-contain transform group-hover:scale-110 transition-transform duration-500"
+                                />
+                            </div>
+
+                            <h3 className="text-2xl font-serif font-bold mb-3">{product.name}</h3>
+                            <p className="text-gray-500 mb-6 flex-grow line-clamp-2">
+                                {product.description}
                             </p>
-                            <ul className="space-y-2 text-sm text-gray-500">
-                                <li>• Hardness: 50</li>
-                                <li>• pH: 7.4</li>
-                                <li>• Smooth finish</li>
-                            </ul>
+
                             <Button
                                 size="sm"
                                 variant="outline"
-                                className="mt-6 border-BRAND-teal text-BRAND-teal hover:bg-BRAND-teal hover:text-white"
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="w-full border-BRAND-teal text-BRAND-teal hover:bg-BRAND-teal hover:text-white transition-all font-bold"
+                                onClick={() => navigate(`/${lang}/products/${product.id}`)}
                             >
-                                {t('cta.sample')}
+                                Details
                             </Button>
                         </motion.div>
+                    ))}
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                        >
-                            <h3 className="text-3xl font-serif font-bold mb-4">Aeterno Hard</h3>
-                            <p className="text-gray-600 mb-4">
-                                Rich in minerals for active lifestyles and recovery.
-                            </p>
-                            <ul className="space-y-2 text-sm text-gray-500">
-                                <li>• Hardness: 300</li>
-                                <li>• pH: 7.6</li>
-                                <li>• Mineral rich</li>
-                            </ul>
-                            <Button
-                                size="sm"
-                                variant="outline"
-                                className="mt-6 border-BRAND-teal text-BRAND-teal hover:bg-BRAND-teal hover:text-white"
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                            >
-                                {t('cta.sample')}
-                            </Button>
-                        </motion.div>
-                    </div>
+                    {/* Show placeholder if no products */}
+                    {products.length === 0 && (
+                        <div className="col-span-full py-20 text-center text-gray-400">
+                            No products found. Please add products in the admin panel.
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../components/common/Button';
-import { Trash2, Bell } from 'lucide-react';
+import { Trash2, Bell, Package, Film, MessageSquare, Plus, Save, X } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface Inquiry {
-    id: number;
-    contactPoint: string;
+    id: string;
+    contact_point: string;
     message: string;
-    date: string;
+    created_at: string;
     status: string;
+}
+
+interface Product {
+    id: string;
+    name: string;
+    description: string;
+    images: string[];
+    details: any;
+}
+
+interface MediaAsset {
+    id: string;
+    type: 'video' | 'material';
+    title: string;
+    thumbnail_url: string;
+    youtube_link: string;
+    file_url?: string;
+    order_index: number;
 }
 
 export function Admin() {
@@ -15,28 +34,59 @@ export function Admin() {
         return sessionStorage.getItem('isAdminLoggedIn') === 'true';
     });
     const [password, setPassword] = useState('');
+    const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'media'>('inquiries');
+
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [mediaAssets, setMediaAssets] = useState<MediaAsset[]>([]);
     const [notification, setNotification] = useState<string | null>(null);
 
-    const loadData = () => {
-        const data = JSON.parse(localStorage.getItem('inquiries') || '[]');
-        setInquiries(data);
-    };
+    const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+    const [editingMedia, setEditingMedia] = useState<MediaAsset | null>(null);
 
     useEffect(() => {
-        // Load initial data
-        loadData();
+        if (isLoggedIn) {
+            loadInquiries();
+            loadProducts();
+            loadMediaAssets();
+        }
+    }, [isLoggedIn]);
 
-        // Simulate real-time notifications
-        const interval = setInterval(() => {
-            if (Math.random() > 0.7) {
-                setNotification("New inquiry received from Global Partner!");
-                setTimeout(() => setNotification(null), 3000);
-            }
-        }, 10000);
+    const loadInquiries = async () => {
+        const { data, error } = await supabase
+            .from('inquiries')
+            .select('*')
+            .order('created_at', { ascending: false });
+        if (error) {
+            console.error('Error loading inquiries:', error);
+            return;
+        }
+        if (data) setInquiries(data);
+    };
 
-        return () => clearInterval(interval);
-    }, []);
+    const loadProducts = async () => {
+        const { data, error } = await supabase
+            .from('products')
+            .select('*')
+            .order('created_at', { ascending: false });
+        if (error) {
+            console.error('Error loading products:', error);
+            return;
+        }
+        if (data) setProducts(data);
+    };
+
+    const loadMediaAssets = async () => {
+        const { data, error } = await supabase
+            .from('media_assets')
+            .select('*')
+            .order('order_index', { ascending: true });
+        if (error) {
+            console.error('Error loading media assets:', error);
+            return;
+        }
+        if (data) setMediaAssets(data);
+    };
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -53,10 +103,68 @@ export function Admin() {
         sessionStorage.removeItem('isAdminLoggedIn');
     };
 
-    const handleDelete = (id: number) => {
-        const updated = inquiries.filter(inq => inq.id !== id);
-        setInquiries(updated);
-        localStorage.setItem('inquiries', JSON.stringify(updated));
+    const handleDeleteInquiry = async (id: string) => {
+        if (!confirm('Are you sure you want to delete this inquiry?')) return;
+        const { error } = await supabase.from('inquiries').delete().eq('id', id);
+        if (!error) loadInquiries();
+    };
+
+    // Product Functions
+    const handleSaveProduct = async () => {
+        if (!editingProduct) return;
+
+        const { error } = await supabase
+            .from('products')
+            .upsert({
+                id: editingProduct.id || undefined,
+                name: editingProduct.name,
+                description: editingProduct.description,
+                images: editingProduct.images,
+                details: editingProduct.details
+            });
+
+        if (!error) {
+            setNotification('Product saved successfully');
+            setEditingProduct(null);
+            loadProducts();
+            setTimeout(() => setNotification(null), 3000);
+        }
+    };
+
+    const handleDeleteProduct = async (id: string) => {
+        if (!confirm('Are you sure you want to delete this product?')) return;
+        const { error } = await supabase.from('products').delete().eq('id', id);
+        if (!error) loadProducts();
+    };
+
+    // Media Functions
+    const handleSaveMedia = async () => {
+        if (!editingMedia) return;
+
+        const { error } = await supabase
+            .from('media_assets')
+            .upsert({
+                id: editingMedia.id || undefined,
+                type: editingMedia.type,
+                title: editingMedia.title,
+                thumbnail_url: editingMedia.thumbnail_url,
+                youtube_link: editingMedia.youtube_link,
+                file_url: editingMedia.file_url,
+                order_index: editingMedia.order_index
+            });
+
+        if (!error) {
+            setNotification('Media asset saved successfully');
+            setEditingMedia(null);
+            loadMediaAssets();
+            setTimeout(() => setNotification(null), 3000);
+        }
+    };
+
+    const handleDeleteMedia = async (id: string) => {
+        if (!confirm('Are you sure you want to delete this media asset?')) return;
+        const { error } = await supabase.from('media_assets').delete().eq('id', id);
+        if (!error) loadMediaAssets();
     };
 
     if (!isLoggedIn) {
@@ -79,7 +187,6 @@ export function Admin() {
 
     return (
         <div className="min-h-screen bg-gray-50 text-gray-800">
-            {/* Notification Toast */}
             {notification && (
                 <div className="fixed top-4 right-4 bg-BRAND-teal text-white px-6 py-4 rounded-lg shadow-2xl flex items-center animate-bounce z-50">
                     <Bell className="w-6 h-6 mr-3" />
@@ -88,68 +195,219 @@ export function Admin() {
             )}
 
             <header className="bg-BRAND-deepBlue text-white py-4 px-6 flex justify-between items-center shadow-md">
-                <h1 className="text-xl font-bold">AETERNO Admin Center</h1>
+                <div className="flex items-center space-x-6">
+                    <h1 className="text-xl font-bold">AETERNO Admin</h1>
+                    <nav className="flex space-x-2">
+                        <button
+                            onClick={() => setActiveTab('inquiries')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'inquiries' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
+                        >
+                            <MessageSquare className="w-4 h-4 inline-block mr-2" /> Inquiries
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('products')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'products' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
+                        >
+                            <Package className="w-4 h-4 inline-block mr-2" /> Products
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('media')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
+                        >
+                            <Film className="w-4 h-4 inline-block mr-2" /> Media Center
+                        </button>
+                    </nav>
+                </div>
                 <div className="flex items-center space-x-4">
-                    <span className="text-sm bg-white/10 px-3 py-1 rounded-full">Status: Online</span>
                     <Button variant="ghost" className="text-white hover:text-red-400" onClick={handleLogout}>Logout</Button>
                 </div>
             </header>
 
             <main className="container mx-auto px-6 py-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-gray-500 text-sm font-semibold uppercase mb-2">Total Inquiries</h3>
-                        <p className="text-4xl font-bold text-BRAND-deepBlue">{inquiries.length}</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-gray-500 text-sm font-semibold uppercase mb-2">Unread Messages</h3>
-                        <p className="text-4xl font-bold text-BRAND-teal">{inquiries.filter(i => i.status === 'Unread').length}</p>
-                    </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-                        <h2 className="font-bold text-lg">Inquiry List</h2>
-                        <Button size="sm" variant="outline" onClick={loadData}>Refresh</Button>
-                    </div>
-                    <table className="w-full text-left">
-                        <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
-                            <tr>
-                                <th className="px-6 py-4">Date</th>
-                                <th className="px-6 py-4">Contact</th>
-                                <th className="px-6 py-4">Message</th>
-                                <th className="px-6 py-4">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-100">
-                            {inquiries.length === 0 ? (
+                {activeTab === 'inquiries' && (
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                            <h2 className="font-bold text-lg">Inquiry List</h2>
+                            <Button size="sm" variant="outline" onClick={loadInquiries}>Refresh</Button>
+                        </div>
+                        <table className="w-full text-left">
+                            <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
                                 <tr>
-                                    <td colSpan={4} className="px-6 py-8 text-center text-gray-400">No inquiries found.</td>
+                                    <th className="px-6 py-4">Date</th>
+                                    <th className="px-6 py-4">Contact</th>
+                                    <th className="px-6 py-4">Message</th>
+                                    <th className="px-6 py-4">Actions</th>
                                 </tr>
-                            ) : (
-                                inquiries.map((inq) => (
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                                {inquiries.map((inq) => (
                                     <tr key={inq.id} className="hover:bg-gray-50/50 transition-colors">
-                                        <td className="px-6 py-4 text-sm text-gray-500">{inq.date}</td>
-                                        <td className="px-6 py-4 font-medium">{inq.contactPoint}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-500">{new Date(inq.created_at).toLocaleString()}</td>
+                                        <td className="px-6 py-4 font-medium">{inq.contact_point}</td>
                                         <td className="px-6 py-4 text-gray-600 max-w-md">
-                                            <p className="line-clamp-3 whitespace-pre-line text-sm leading-relaxed">
-                                                {inq.message}
-                                            </p>
+                                            <p className="line-clamp-3 whitespace-pre-line text-sm leading-relaxed">{inq.message}</p>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <button
-                                                onClick={() => handleDelete(inq.id)}
-                                                className="text-gray-400 hover:text-red-500 transition-colors"
-                                            >
+                                            <button onClick={() => handleDeleteInquiry(inq.id)} className="text-gray-400 hover:text-red-500">
                                                 <Trash2 className="w-5 h-5" />
                                             </button>
                                         </td>
                                     </tr>
-                                ))
-                            )}
-                        </tbody>
-                    </table>
-                </div>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+
+                {activeTab === 'products' && (
+                    <div className="space-y-6">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-2xl font-bold">Manage Products</h2>
+                            <Button onClick={() => setEditingProduct({ id: '', name: '', description: '', images: ['', '', '', ''], details: {} })}>
+                                <Plus className="w-4 h-4 mr-2" /> Add Product
+                            </Button>
+                        </div>
+
+                        {editingProduct && (
+                            <div className="bg-white p-6 rounded-xl shadow-md border border-BRAND-teal/20">
+                                <h3 className="text-lg font-bold mb-4">{editingProduct.id ? 'Edit Product' : 'New Product'}</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Product Name"
+                                        className="w-full p-2 border rounded"
+                                        value={editingProduct.name}
+                                        onChange={e => setEditingProduct({ ...editingProduct, name: e.target.value })}
+                                    />
+                                    <textarea
+                                        placeholder="Description"
+                                        className="w-full p-2 border rounded"
+                                        value={editingProduct.description}
+                                        onChange={e => setEditingProduct({ ...editingProduct, description: e.target.value })}
+                                    />
+                                    <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-2">
+                                        {[0, 1, 2, 3].map(i => (
+                                            <input
+                                                key={i}
+                                                type="text"
+                                                placeholder={`Image URL ${i + 1}`}
+                                                className="w-full p-2 border rounded text-xs"
+                                                value={editingProduct.images[i] || ''}
+                                                onChange={e => {
+                                                    const newImgs = [...editingProduct.images];
+                                                    newImgs[i] = e.target.value;
+                                                    setEditingProduct({ ...editingProduct, images: newImgs });
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="mt-4 flex space-x-2">
+                                    <Button onClick={handleSaveProduct}><Save className="w-4 h-4 mr-2" /> Save</Button>
+                                    <Button variant="outline" onClick={() => setEditingProduct(null)}><X className="w-4 h-4 mr-2" /> Cancel</Button>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {products.map(product => (
+                                <div key={product.id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                                    <div className="aspect-square bg-gray-50 rounded-lg mb-4 overflow-hidden">
+                                        {product.images[0] && <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />}
+                                    </div>
+                                    <h3 className="font-bold mb-1">{product.name}</h3>
+                                    <p className="text-sm text-gray-500 line-clamp-2 mb-4">{product.description}</p>
+                                    <div className="flex justify-between">
+                                        <Button size="sm" variant="outline" onClick={() => setEditingProduct(product)}>Edit</Button>
+                                        <button onClick={() => handleDeleteProduct(product.id)} className="text-red-400 hover:text-red-600"><Trash2 className="w-5 h-5" /></button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'media' && (
+                    <div className="space-y-6">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-2xl font-bold">Manage Media Center</h2>
+                            <Button onClick={() => setEditingMedia({ id: '', type: 'video', title: '', thumbnail_url: '', youtube_link: '', order_index: mediaAssets.length })}>
+                                <Plus className="w-4 h-4 mr-2" /> Add Media
+                            </Button>
+                        </div>
+
+                        {editingMedia && (
+                            <div className="bg-white p-6 rounded-xl shadow-md border border-BRAND-teal/20">
+                                <h3 className="text-lg font-bold mb-4">{editingMedia.id ? 'Edit Media' : 'New Media'}</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <select
+                                        className="w-full p-2 border rounded"
+                                        value={editingMedia.type}
+                                        onChange={e => setEditingMedia({ ...editingMedia, type: e.target.value as any })}
+                                    >
+                                        <option value="video">Video</option>
+                                        <option value="material">Material (PDF/Archive)</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        placeholder="Title"
+                                        className="w-full p-2 border rounded"
+                                        value={editingMedia.title}
+                                        onChange={e => setEditingMedia({ ...editingMedia, title: e.target.value })}
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Thumbnail URL"
+                                        className="w-full p-2 border rounded"
+                                        value={editingMedia.thumbnail_url}
+                                        onChange={e => setEditingMedia({ ...editingMedia, thumbnail_url: e.target.value })}
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder={editingMedia.type === 'video' ? 'YouTube link' : 'File URL'}
+                                        className="w-full p-2 border rounded"
+                                        value={editingMedia.type === 'video' ? editingMedia.youtube_link : editingMedia.file_url}
+                                        onChange={e => editingMedia.type === 'video' ? setEditingMedia({ ...editingMedia, youtube_link: e.target.value }) : setEditingMedia({ ...editingMedia, file_url: e.target.value })}
+                                    />
+                                </div>
+                                <div className="mt-4 flex space-x-2">
+                                    <Button onClick={handleSaveMedia}><Save className="w-4 h-4 mr-2" /> Save</Button>
+                                    <Button variant="outline" onClick={() => setEditingMedia(null)}><X className="w-4 h-4 mr-2" /> Cancel</Button>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <table className="w-full text-left">
+                                <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
+                                    <tr>
+                                        <th className="px-6 py-4">Type</th>
+                                        <th className="px-6 py-4">Title</th>
+                                        <th className="px-6 py-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-100">
+                                    {mediaAssets.map((asset) => (
+                                        <tr key={asset.id} className="hover:bg-gray-50/50 transition-colors">
+                                            <td className="px-6 py-4">
+                                                <span className={`px-2 py-1 rounded-full text-xs font-bold ${asset.type === 'video' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'}`}>
+                                                    {asset.type.toUpperCase()}
+                                                </span>
+                                            </td>
+                                            <td className="px-6 py-4 font-medium">{asset.title}</td>
+                                            <td className="px-6 py-4 flex space-x-2">
+                                                <Button size="sm" variant="ghost" onClick={() => setEditingMedia(asset)}>Edit</Button>
+                                                <button onClick={() => handleDeleteMedia(asset.id)} className="text-gray-400 hover:text-red-500">
+                                                    <Trash2 className="w-5 h-5" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                )}
             </main>
         </div>
     );

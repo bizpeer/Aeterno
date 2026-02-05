@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../common/Button';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { supabase } from '../../lib/supabase';
 
 export function Contact() {
     const { t } = useTranslation();
@@ -10,22 +11,27 @@ export function Contact() {
         message: '',
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Save to localStorage for Admin mock
-        const newInquiry = {
-            id: Date.now(),
-            ...formData,
-            date: new Date().toLocaleString(),
-            status: 'Unread'
-        };
+        try {
+            const { error } = await supabase
+                .from('inquiries')
+                .insert([
+                    {
+                        contact_point: formData.contactPoint,
+                        message: formData.message,
+                    }
+                ]);
 
-        const existingInquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
-        localStorage.setItem('inquiries', JSON.stringify([newInquiry, ...existingInquiries]));
+            if (error) throw error;
 
-        alert('Thank you! We will reach out to your provided contact immediately.');
-        setFormData({ contactPoint: '', message: '' });
+            alert('Thank you! We will reach out to your provided contact immediately.');
+            setFormData({ contactPoint: '', message: '' });
+        } catch (error) {
+            console.error('Error submitting inquiry:', error);
+            alert('Something went wrong. Please try again later.');
+        }
     };
 
     return (
