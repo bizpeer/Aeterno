@@ -429,73 +429,62 @@ export function Admin() {
                                     <div className="flex flex-col space-y-2">
                                         <label className="text-sm font-bold">Thumbnail Image</label>
                                         {editingMedia.thumbnail_url && (
-                                            <img src={editingMedia.thumbnail_url} className="w-full h-32 object-cover rounded border" alt="" />
+                                            <div className="relative group w-full h-32 rounded border overflow-hidden">
+                                                <img src={editingMedia.thumbnail_url} className="w-full h-full object-cover" alt="" />
+                                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                    <p className="text-white text-[10px] truncate px-2">{editingMedia.thumbnail_url}</p>
+                                                </div>
+                                            </div>
                                         )}
-                                        <div className="flex space-x-2">
+                                        <label className="flex items-center justify-center py-3 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-sm font-medium">
+                                            {isUploading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Upload className="w-5 h-5 text-gray-400 mr-2" />}
+                                            {editingMedia.thumbnail_url ? 'Change Thumbnail Image' : 'Upload Thumbnail Image'}
                                             <input
-                                                type="text"
-                                                placeholder="Paste Image URL"
-                                                className="flex-grow p-2 border rounded text-sm"
-                                                value={editingMedia.thumbnail_url}
-                                                onChange={e => setEditingMedia({ ...editingMedia, thumbnail_url: e.target.value })}
+                                                type="file"
+                                                className="hidden"
+                                                accept="image/*"
+                                                onChange={async (e) => {
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const url = await handleFileUpload(file, 'media/thumbnails');
+                                                        if (url) setEditingMedia({ ...editingMedia, thumbnail_url: url });
+                                                    }
+                                                }}
                                             />
-                                            <label className="flex items-center justify-center px-4 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-xs">
-                                                {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-gray-400 mr-2" />}
-                                                Upload
-                                                <input
-                                                    type="file"
-                                                    className="hidden"
-                                                    accept="image/*"
-                                                    onChange={async (e) => {
-                                                        const file = e.target.files?.[0];
-                                                        if (file) {
-                                                            const url = await handleFileUpload(file, 'media/thumbnails');
-                                                            if (url) setEditingMedia({ ...editingMedia, thumbnail_url: url });
-                                                        }
-                                                    }}
-                                                />
-                                            </label>
-                                        </div>
+                                        </label>
                                     </div>
                                     <div className="flex flex-col space-y-2">
                                         <label className="text-sm font-bold">{editingMedia.type === 'video' ? 'YouTube Link' : 'Resource File (PDF)'}</label>
                                         {editingMedia.type === 'video' ? (
                                             <input
                                                 type="text"
-                                                placeholder="YouTube Link or ID"
+                                                placeholder="Paste YouTube Link or ID here"
                                                 className="w-full p-2 border rounded"
                                                 value={editingMedia.youtube_link}
                                                 onChange={e => setEditingMedia({ ...editingMedia, youtube_link: e.target.value })}
                                             />
                                         ) : (
                                             <div className="flex flex-col space-y-2">
-                                                <div className="flex space-x-2">
+                                                <label className="flex items-center justify-center py-3 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-sm font-medium">
+                                                    {isUploading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Upload className="w-5 h-5 text-gray-400 mr-2" />}
+                                                    {editingMedia.file_url ? 'Replace PDF File' : 'Upload PDF File'}
                                                     <input
-                                                        type="text"
-                                                        placeholder="Paste File URL or Upload below"
-                                                        className="flex-grow p-2 border rounded text-sm"
-                                                        value={editingMedia.file_url || ''}
-                                                        onChange={e => setEditingMedia({ ...editingMedia, file_url: e.target.value })}
+                                                        type="file"
+                                                        className="hidden"
+                                                        accept=".pdf,application/pdf"
+                                                        onChange={async (e) => {
+                                                            const file = e.target.files?.[0];
+                                                            if (file) {
+                                                                const url = await handleFileUpload(file, 'media/files');
+                                                                if (url) setEditingMedia({ ...editingMedia, file_url: url });
+                                                            }
+                                                        }}
                                                     />
-                                                    <label className="flex items-center justify-center px-4 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-xs">
-                                                        {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-gray-400 mr-2" />}
-                                                        Upload PDF
-                                                        <input
-                                                            type="file"
-                                                            className="hidden"
-                                                            accept=".pdf,application/pdf"
-                                                            onChange={async (e) => {
-                                                                const file = e.target.files?.[0];
-                                                                if (file) {
-                                                                    const url = await handleFileUpload(file, 'media/files');
-                                                                    if (url) setEditingMedia({ ...editingMedia, file_url: url });
-                                                                }
-                                                            }}
-                                                        />
-                                                    </label>
-                                                </div>
+                                                </label>
                                                 {editingMedia.file_url && (
-                                                    <p className="text-[10px] text-BRAND-teal font-medium truncate">Uploaded: {editingMedia.file_url}</p>
+                                                    <div className="p-2 bg-teal-50 rounded border border-teal-100 overflow-hidden">
+                                                        <p className="text-[10px] text-BRAND-teal font-medium truncate">File URL: {editingMedia.file_url}</p>
+                                                    </div>
                                                 )}
                                             </div>
                                         )}
