@@ -7,7 +7,6 @@ import { Button } from '../common/Button';
 
 export function Navbar() {
     const { t, i18n } = useTranslation();
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
     const { lang } = useParams<{ lang: string }>();
@@ -16,11 +15,6 @@ export function Navbar() {
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-
         // Close dropdown when clicking outside
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -30,7 +24,6 @@ export function Navbar() {
         document.addEventListener('mousedown', handleClickOutside);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
@@ -78,8 +71,7 @@ export function Navbar() {
     return (
         <nav
             className={clsx(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-BRAND-deepBlue/90 backdrop-blur-md py-4" : "bg-transparent py-6"
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-BRAND-deepBlue/90 backdrop-blur-md py-4"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">

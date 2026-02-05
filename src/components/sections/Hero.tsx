@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../common/Button';
 // Using the deep sea image for background now
-import heroBg from '../../assets/images/bottle-hero.webp';
+import heroBg from '../../assets/images/bottle-hero.jpg';
 
 export function Hero() {
     const { t, i18n } = useTranslation();
