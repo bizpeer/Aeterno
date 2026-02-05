@@ -36,17 +36,25 @@ interface Announcement {
     created_at: string;
 }
 
+interface CompanyInfo {
+    id: number;
+    address: string;
+    phone: string;
+    email: string;
+}
+
 export function Admin() {
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem('isAdminLoggedIn') === 'true';
     });
     const [password, setPassword] = useState('');
-    const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'media' | 'announcements'>('inquiries');
+    const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'media' | 'announcements' | 'company'>('inquiries');
 
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
     const [mediaAssets, setMediaAssets] = useState<MediaAsset[]>([]);
     const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+    const [companyInfo, setCompanyInfo] = useState<CompanyInfo>({ id: 1, address: '', phone: '', email: '' });
     const [notification, setNotification] = useState<string | null>(null);
 
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -59,6 +67,7 @@ export function Admin() {
             loadProducts();
             loadMediaAssets();
             loadAnnouncements();
+            loadCompanyInfo();
         }
     }, [isLoggedIn]);
 
@@ -108,6 +117,35 @@ export function Admin() {
             return;
         }
         if (data) setAnnouncements(data);
+    };
+
+    const loadCompanyInfo = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('company_info')
+                .select('*')
+                .single();
+
+            if (error) throw error;
+            if (data) setCompanyInfo(data);
+        } catch (error) {
+            console.error('Error loading company info:', error);
+        }
+    };
+
+    const handleSaveCompanyInfo = async () => {
+        try {
+            const { error } = await supabase
+                .from('company_info')
+                .upsert(companyInfo);
+
+            if (error) throw error;
+            setNotification('Company info saved successfully');
+            setTimeout(() => setNotification(null), 3000);
+        } catch (error) {
+            console.error('Error saving company info:', error);
+            alert('Failed to save company info.');
+        }
     };
 
     const handleLogin = (e: React.FormEvent) => {
@@ -298,6 +336,12 @@ export function Admin() {
                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'announcements' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
                         >
                             <Bell className="w-4 h-4 inline-block mr-2" /> Announcements
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('company')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'company' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
+                        >
+                            <MessageSquare className="w-4 h-4 inline-block mr-2" /> Company Info
                         </button>
                     </nav>
                 </div>
@@ -627,7 +671,53 @@ export function Admin() {
                         </div>
                     </div>
                 )}
-            </main>
-        </div>
+
+                {
+                    activeTab === 'company' && (
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+                            <h2 className="text-xl font-bold mb-6 text-BRAND-deepBlue">Company Information</h2>
+
+                            <div className="space-y-6 max-w-2xl">
+                                <div>
+                                    <label className="block text-sm font-bold mb-2 text-gray-700">Address</label>
+                                    <textarea
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-BRAND-deepBlue focus:ring-1 focus:ring-BRAND-deepBlue outline-none transition-colors h-24"
+                                        value={companyInfo.address}
+                                        onChange={(e) => setCompanyInfo({ ...companyInfo, address: e.target.value })}
+                                    />
+                                    <p className="text-xs text-gray-500 mt-1">Changing this address will automatically update the Google Map on the Contact page.</p>
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-bold mb-2 text-gray-700">Phone</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-BRAND-deepBlue focus:ring-1 focus:ring-BRAND-deepBlue outline-none transition-colors"
+                                        value={companyInfo.phone}
+                                        onChange={(e) => setCompanyInfo({ ...companyInfo, phone: e.target.value })}
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-sm font-bold mb-2 text-gray-700">Email</label>
+                                    <input
+                                        type="email"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-BRAND-deepBlue focus:ring-1 focus:ring-BRAND-deepBlue outline-none transition-colors"
+                                        value={companyInfo.email}
+                                        onChange={(e) => setCompanyInfo({ ...companyInfo, email: e.target.value })}
+                                    />
+                                </div>
+
+                                <div className="pt-4">
+                                    <Button onClick={handleSaveCompanyInfo} className="px-8">
+                                        <Save className="w-4 h-4 mr-2" /> Save Changes
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+            </main >
+        </div >
     );
 }

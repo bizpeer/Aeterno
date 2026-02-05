@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '../common/Button';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -10,6 +10,19 @@ export function Contact() {
         contactPoint: '', // Email or Phone
         message: '',
     });
+    const [companyInfo, setCompanyInfo] = useState({
+        address: '123 Business Road, Tech District,\nSeoul, South Korea',
+        phone: '+82 2-1234-5678',
+        email: 'contact@aeterno.com'
+    });
+
+    useEffect(() => {
+        const fetchCompanyInfo = async () => {
+            const { data } = await supabase.from('company_info').select('*').single();
+            if (data) setCompanyInfo(data);
+        };
+        fetchCompanyInfo();
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -51,21 +64,21 @@ export function Contact() {
                         <div className="bg-gray-50 p-6 rounded-xl">
                             <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Address</h3>
                             <p className="text-gray-600 whitespace-pre-line">
-                                123 Business Road, Tech District,<br />Seoul, South Korea
+                                {companyInfo.address}
                             </p>
                         </div>
                         {/* Phone */}
                         <div className="bg-gray-50 p-6 rounded-xl">
                             <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Phone</h3>
                             <p className="text-gray-600">
-                                +82 2-1234-5678
+                                {companyInfo.phone}
                             </p>
                         </div>
                         {/* Email */}
                         <div className="bg-gray-50 p-6 rounded-xl">
                             <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Email</h3>
                             <p className="text-gray-600">
-                                contact@aeterno.com
+                                {companyInfo.email}
                             </p>
                         </div>
                     </div>
@@ -73,7 +86,7 @@ export function Contact() {
                     {/* Google Map Embed */}
                     <div className="w-full h-80 bg-gray-200 rounded-xl overflow-hidden mb-12 shadow-sm">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1581.332309852233!2d127.027610015!3d37.49794200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e3456789%3A0xabcdef12345678!2sGangnam-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1625000000000!5m2!1sen!2skr"
+                            src={`https://maps.google.com/maps?q=${encodeURIComponent(companyInfo.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
