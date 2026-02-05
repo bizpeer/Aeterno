@@ -132,7 +132,7 @@ export function BrandStory() {
                             <div className="h-px w-12 bg-gray-200 mx-auto" />
                         </div>
 
-                        <div className="text-[13px] text-gray-600 leading-[1.7] font-light text-center md:text-left whitespace-pre-line">
+                        <div className="text-[14px] text-gray-600 leading-[1.7] font-light text-center md:text-left whitespace-pre-line">
                             {t('brandStory.ceoMessage.body')}
                         </div>
 
