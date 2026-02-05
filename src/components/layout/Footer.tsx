@@ -20,20 +20,12 @@ export function Footer() {
                     </div>
 
                     {/* Links */}
-                    <div className="md:col-span-2 grid grid-cols-2 gap-8">
+                    <div className="md:col-span-2">
                         <div>
                             <h4 className="font-bold mb-4 uppercase text-sm tracking-wider">{t('footer.company')}</h4>
                             <ul className="space-y-2 text-sm text-white/60">
                                 <li><Link to={`/${currentLang}/brand-story`} className="hover:text-BRAND-aqua transition-colors">About Us</Link></li>
-                                <li><Link to={`/${currentLang}/career`} className="hover:text-BRAND-aqua transition-colors">Careers</Link></li>
                                 <li><Link to={`/${currentLang}/contact`} className="hover:text-BRAND-aqua transition-colors">Contact</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="font-bold mb-4 uppercase text-sm tracking-wider">{t('footer.legal')}</h4>
-                            <ul className="space-y-2 text-sm text-white/60">
-                                <li><Link to={`/${currentLang}/privacy`} className="hover:text-BRAND-aqua transition-colors">Privacy Policy</Link></li>
-                                <li><Link to={`/${currentLang}/terms`} className="hover:text-BRAND-aqua transition-colors">Terms of Service</Link></li>
                             </ul>
                         </div>
                     </div>

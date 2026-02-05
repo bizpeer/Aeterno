@@ -39,13 +39,52 @@ export function Contact() {
             <div className="container mx-auto px-6 max-w-2xl">
                 <div className="text-center mb-12">
                     <span className="text-BRAND-teal text-sm font-bold tracking-widest uppercase mb-4 block">
-                        Easy Access
+                        Get in Touch
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-                        Partner with AETERNO
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">
+                        Contact Us
                     </h2>
+
+                    {/* Information Grid */}
+                    <div className="grid md:grid-cols-3 gap-8 mb-16 items-start text-left">
+                        {/* Address */}
+                        <div className="bg-gray-50 p-6 rounded-xl">
+                            <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Address</h3>
+                            <p className="text-gray-600 whitespace-pre-line">
+                                123 Business Road, Tech District,<br />Seoul, South Korea
+                            </p>
+                        </div>
+                        {/* Phone */}
+                        <div className="bg-gray-50 p-6 rounded-xl">
+                            <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Phone</h3>
+                            <p className="text-gray-600">
+                                +82 2-1234-5678
+                            </p>
+                        </div>
+                        {/* Email */}
+                        <div className="bg-gray-50 p-6 rounded-xl">
+                            <h3 className="font-bold text-lg mb-2 text-BRAND-deepBlue">Email</h3>
+                            <p className="text-gray-600">
+                                contact@aeterno.com
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Google Map Embed */}
+                    <div className="w-full h-80 bg-gray-200 rounded-xl overflow-hidden mb-12 shadow-sm">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1581.332309852233!2d127.027610015!3d37.49794200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e3456789%3A0xabcdef12345678!2sGangnam-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1625000000000!5m2!1sen!2skr"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            title="Google Map"
+                        ></iframe>
+                    </div>
+
                     <p className="text-gray-600">
-                        Simple steps to premium hydration. Leave your contact info, and we'll handle the rest.
+                        Leave your detailed inquiries below.
                     </p>
                 </div>
 

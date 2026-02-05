@@ -29,16 +29,24 @@ interface MediaAsset {
     order_index: number;
 }
 
+interface Announcement {
+    id: string;
+    image_url: string;
+    order_index: number;
+    created_at: string;
+}
+
 export function Admin() {
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem('isAdminLoggedIn') === 'true';
     });
     const [password, setPassword] = useState('');
-    const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'media'>('inquiries');
+    const [activeTab, setActiveTab] = useState<'inquiries' | 'products' | 'media' | 'announcements'>('inquiries');
 
     const [inquiries, setInquiries] = useState<Inquiry[]>([]);
     const [products, setProducts] = useState<Product[]>([]);
     const [mediaAssets, setMediaAssets] = useState<MediaAsset[]>([]);
+    const [announcements, setAnnouncements] = useState<Announcement[]>([]);
     const [notification, setNotification] = useState<string | null>(null);
 
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -50,6 +58,7 @@ export function Admin() {
             loadInquiries();
             loadProducts();
             loadMediaAssets();
+            loadAnnouncements();
         }
     }, [isLoggedIn]);
 
@@ -87,6 +96,18 @@ export function Admin() {
             return;
         }
         if (data) setMediaAssets(data);
+    };
+
+    const loadAnnouncements = async () => {
+        const { data, error } = await supabase
+            .from('announcements')
+            .select('*')
+            .order('order_index', { ascending: true });
+        if (error) {
+            console.error('Error loading announcements:', error);
+            return;
+        }
+        if (data) setAnnouncements(data);
     };
 
     const handleLogin = (e: React.FormEvent) => {
@@ -201,6 +222,28 @@ export function Admin() {
         if (!error) loadMediaAssets();
     };
 
+    // Announcement Functions
+    const handleSaveAnnouncement = async (imageUrl: string) => {
+        const { error } = await supabase
+            .from('announcements')
+            .insert({
+                image_url: imageUrl,
+                order_index: announcements.length
+            });
+
+        if (!error) {
+            setNotification('Announcement added successfully');
+            loadAnnouncements();
+            setTimeout(() => setNotification(null), 3000);
+        }
+    };
+
+    const handleDeleteAnnouncement = async (id: string) => {
+        if (!confirm('Are you sure you want to delete this announcement?')) return;
+        const { error } = await supabase.from('announcements').delete().eq('id', id);
+        if (!error) loadAnnouncements();
+    };
+
     if (!isLoggedIn) {
         return (
             <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -249,6 +292,12 @@ export function Admin() {
                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'media' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
                         >
                             <Film className="w-4 h-4 inline-block mr-2" /> Media Center
+                        </button>
+                        <button
+                            onClick={() => setActiveTab('announcements')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeTab === 'announcements' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'}`}
+                        >
+                            <Bell className="w-4 h-4 inline-block mr-2" /> Announcements
                         </button>
                     </nav>
                 </div>
@@ -525,6 +574,56 @@ export function Admin() {
                                     ))}
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'announcements' && (
+                    <div className="space-y-6">
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-2xl font-bold">Manage Announcements</h2>
+                            <label className="flex items-center justify-center px-4 py-2 bg-BRAND-deepBlue text-white rounded-lg cursor-pointer hover:bg-BRAND-deepBlue/90 transition-colors text-sm font-medium">
+                                {isUploading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Plus className="w-4 h-4 mr-2" />}
+                                Add Announcement Image
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    accept="image/*"
+                                    onChange={async (e) => {
+                                        const file = e.target.files?.[0];
+                                        if (file) {
+                                            const url = await handleFileUpload(file, 'announcements');
+                                            if (url) await handleSaveAnnouncement(url);
+                                        }
+                                    }}
+                                />
+                            </label>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {announcements.map((announcement, index) => (
+                                <div key={announcement.id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 relative group">
+                                    <div className="aspect-[16/9] bg-gray-50 rounded-lg overflow-hidden mb-2">
+                                        <img src={announcement.image_url} alt={`Announcement ${index + 1}`} className="w-full h-full object-cover" />
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm font-bold text-gray-500">#{index + 1}</span>
+                                        <button
+                                            onClick={() => handleDeleteAnnouncement(announcement.id)}
+                                            className="p-2 bg-white rounded-full text-red-500 hover:bg-red-50 shadow-sm border border-gray-100"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                            {announcements.length === 0 && (
+                                <div className="col-span-full py-12 text-center text-gray-400 bg-white rounded-xl border border-dashed border-gray-200">
+                                    <Bell className="w-12 h-12 mx-auto mb-4 opacity-20" />
+                                    <p>No announcements yet.</p>
+                                    <p className="text-sm mt-2">Upload images to display on the announcement page.</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}

@@ -65,6 +65,7 @@ export function Navbar() {
         { key: 'products', to: `/${currentLang}/products` },
         { key: 'engineering', to: `/${currentLang}/engineering` },
         { key: 'news', to: `/${currentLang}/news` },
+        { key: 'announcement', to: `/${currentLang}/announcement` },
         { key: 'contact', to: `/${currentLang}/contact` },
     ];
 
