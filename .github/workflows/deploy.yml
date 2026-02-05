@@ -37,6 +37,9 @@ jobs:
       - name: Build
         # Skip tsc to avoid minor version or environment mismatches in CI
         run: npx vite build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://vfdihvkigtpbmarwrmng.supabase.co' }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'sb_publishable_q9ciq8dda4JXdGd2fGMnGg_6ROPU-7a' }}
 
       - name: Create 404.html for SPA
         run: cp dist/index.html dist/404.html
