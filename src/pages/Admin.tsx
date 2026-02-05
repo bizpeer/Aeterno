@@ -31,7 +31,10 @@ interface MediaAsset {
 
 interface Announcement {
     id: string;
-    image_url: string;
+    title: string;
+    content: string;
+    thumbnail_url: string;
+    file_url?: string;
     order_index: number;
     created_at: string;
 }
@@ -59,6 +62,7 @@ export function Admin() {
 
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
     const [editingMedia, setEditingMedia] = useState<MediaAsset | null>(null);
+    const [editingAnnouncement, setEditingAnnouncement] = useState<Announcement | null>(null);
     const [isUploading, setIsUploading] = useState(false);
 
     useEffect(() => {
@@ -111,7 +115,7 @@ export function Admin() {
         const { data, error } = await supabase
             .from('announcements')
             .select('*')
-            .order('order_index', { ascending: true });
+            .order('created_at', { ascending: false });
         if (error) {
             console.error('Error loading announcements:', error);
             return;
@@ -261,18 +265,28 @@ export function Admin() {
     };
 
     // Announcement Functions
-    const handleSaveAnnouncement = async (imageUrl: string) => {
+    const handleSaveAnnouncement = async () => {
+        if (!editingAnnouncement) return;
+
         const { error } = await supabase
             .from('announcements')
-            .insert({
-                image_url: imageUrl,
-                order_index: announcements.length
+            .upsert({
+                id: editingAnnouncement.id || undefined,
+                title: editingAnnouncement.title,
+                content: editingAnnouncement.content,
+                thumbnail_url: editingAnnouncement.thumbnail_url,
+                file_url: editingAnnouncement.file_url,
+                order_index: editingAnnouncement.order_index
             });
 
         if (!error) {
-            setNotification('Announcement added successfully');
+            setNotification('Announcement saved successfully');
+            setEditingAnnouncement(null);
             loadAnnouncements();
             setTimeout(() => setNotification(null), 3000);
+        } else {
+            console.error('Error saving announcement:', error);
+            alert('Failed to save announcement');
         }
     };
 
@@ -626,48 +640,123 @@ export function Admin() {
                     <div className="space-y-6">
                         <div className="flex justify-between items-center">
                             <h2 className="text-2xl font-bold">Manage Announcements</h2>
-                            <label className="flex items-center justify-center px-4 py-2 bg-BRAND-deepBlue text-white rounded-lg cursor-pointer hover:bg-BRAND-deepBlue/90 transition-colors text-sm font-medium">
-                                {isUploading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Plus className="w-4 h-4 mr-2" />}
-                                Add Announcement Image
-                                <input
-                                    type="file"
-                                    className="hidden"
-                                    accept="image/*"
-                                    onChange={async (e) => {
-                                        const file = e.target.files?.[0];
-                                        if (file) {
-                                            const url = await handleFileUpload(file, 'announcements');
-                                            if (url) await handleSaveAnnouncement(url);
-                                        }
-                                    }}
-                                />
-                            </label>
+                            <Button onClick={() => setEditingAnnouncement({ id: '', title: '', content: '', thumbnail_url: '', file_url: '', order_index: 0, created_at: '' })}>
+                                <Plus className="w-4 h-4 mr-2" /> Add Announcement
+                            </Button>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {announcements.map((announcement, index) => (
-                                <div key={announcement.id} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 relative group">
-                                    <div className="aspect-[16/9] bg-gray-50 rounded-lg overflow-hidden mb-2">
-                                        <img src={announcement.image_url} alt={`Announcement ${index + 1}`} className="w-full h-full object-cover" />
+                        {editingAnnouncement && (
+                            <div className="bg-white p-6 rounded-xl shadow-md border border-BRAND-teal/20">
+                                <h3 className="text-lg font-bold mb-4">{editingAnnouncement.id ? 'Edit Announcement' : 'New Announcement'}</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Announcement Title"
+                                        className="w-full p-2 border rounded md:col-span-2"
+                                        value={editingAnnouncement.title}
+                                        onChange={e => setEditingAnnouncement({ ...editingAnnouncement, title: e.target.value })}
+                                    />
+                                    <textarea
+                                        placeholder="Main Content (recommended within 6 sentences)"
+                                        className="w-full p-2 border rounded md:col-span-2 h-32"
+                                        value={editingAnnouncement.content}
+                                        onChange={e => setEditingAnnouncement({ ...editingAnnouncement, content: e.target.value })}
+                                    />
+
+                                    {/* Thumbnail Upload */}
+                                    <div className="flex flex-col space-y-2">
+                                        <label className="text-sm font-bold">Thumbnail Image</label>
+                                        {editingAnnouncement.thumbnail_url && (
+                                            <img src={editingAnnouncement.thumbnail_url} className="w-full h-32 object-cover rounded border" alt="" />
+                                        )}
+                                        <label className="flex items-center justify-center py-3 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-sm font-medium">
+                                            {isUploading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Upload className="w-5 h-5 text-gray-400 mr-2" />}
+                                            {editingAnnouncement.thumbnail_url ? 'Change Thumbnail' : 'Upload Thumbnail'}
+                                            <input
+                                                type="file"
+                                                className="hidden"
+                                                accept="image/*"
+                                                onChange={async (e) => {
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const url = await handleFileUpload(file, 'announcements/thumbnails');
+                                                        if (url) setEditingAnnouncement({ ...editingAnnouncement, thumbnail_url: url });
+                                                    }
+                                                }}
+                                            />
+                                        </label>
                                     </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-sm font-bold text-gray-500">#{index + 1}</span>
-                                        <button
-                                            onClick={() => handleDeleteAnnouncement(announcement.id)}
-                                            className="p-2 bg-white rounded-full text-red-500 hover:bg-red-50 shadow-sm border border-gray-100"
-                                        >
-                                            <Trash2 className="w-4 h-4" />
-                                        </button>
+
+                                    {/* Link File Upload (PDF/Image) */}
+                                    <div className="flex flex-col space-y-2">
+                                        <label className="text-sm font-bold">Attachment (PDF or Details Image)</label>
+                                        <label className="flex items-center justify-center py-3 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-sm font-medium">
+                                            {isUploading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <Upload className="w-5 h-5 text-gray-400 mr-2" />}
+                                            {editingAnnouncement.file_url ? 'Replace Attachment' : 'Upload Attachment'}
+                                            <input
+                                                type="file"
+                                                className="hidden"
+                                                accept=".pdf,application/pdf,image/*"
+                                                onChange={async (e) => {
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const url = await handleFileUpload(file, 'announcements/files');
+                                                        if (url) setEditingAnnouncement({ ...editingAnnouncement, file_url: url });
+                                                    }
+                                                }}
+                                            />
+                                        </label>
+                                        {editingAnnouncement.file_url && (
+                                            <div className="p-2 bg-teal-50 rounded border border-teal-100 overflow-hidden">
+                                                <p className="text-[10px] text-BRAND-teal font-medium truncate">Attached: {editingAnnouncement.file_url}</p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
-                            ))}
-                            {announcements.length === 0 && (
-                                <div className="col-span-full py-12 text-center text-gray-400 bg-white rounded-xl border border-dashed border-gray-200">
-                                    <Bell className="w-12 h-12 mx-auto mb-4 opacity-20" />
-                                    <p>No announcements yet.</p>
-                                    <p className="text-sm mt-2">Upload images to display on the announcement page.</p>
+                                <div className="mt-4 flex space-x-2">
+                                    <Button onClick={handleSaveAnnouncement}><Save className="w-4 h-4 mr-2" /> Save Announcement</Button>
+                                    <Button variant="outline" onClick={() => setEditingAnnouncement(null)}><X className="w-4 h-4 mr-2" /> Cancel</Button>
                                 </div>
-                            )}
+                            </div>
+                        )}
+
+                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <table className="w-full text-left">
+                                <thead className="bg-gray-50 text-gray-500 text-sm uppercase">
+                                    <tr>
+                                        <th className="px-6 py-4">Thumbnail</th>
+                                        <th className="px-6 py-4">Title</th>
+                                        <th className="px-6 py-4">Date</th>
+                                        <th className="px-6 py-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-100">
+                                    {announcements.map((ann) => (
+                                        <tr key={ann.id} className="hover:bg-gray-50/50 transition-colors">
+                                            <td className="px-6 py-4">
+                                                <div className="w-16 h-10 bg-gray-100 rounded overflow-hidden">
+                                                    {ann.thumbnail_url && <img src={ann.thumbnail_url} className="w-full h-full object-cover" alt="" />}
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 font-medium">{ann.title}</td>
+                                            <td className="px-6 py-4 text-sm text-gray-500">{new Date(ann.created_at).toLocaleDateString()}</td>
+                                            <td className="px-6 py-4 flex space-x-2">
+                                                <Button size="sm" variant="ghost" onClick={() => setEditingAnnouncement(ann)}>Edit</Button>
+                                                <button onClick={() => handleDeleteAnnouncement(ann.id)} className="text-gray-400 hover:text-red-500">
+                                                    <Trash2 className="w-5 h-5" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                    {announcements.length === 0 && (
+                                        <tr>
+                                            <td colSpan={4} className="px-6 py-12 text-center text-gray-400">
+                                                No announcements found.
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 )}
