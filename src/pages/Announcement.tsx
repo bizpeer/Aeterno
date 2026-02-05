@@ -98,12 +98,20 @@ export function Announcement() {
                                         <div className="flex items-center text-xs text-gray-400 mb-3 space-x-3">
                                             <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {new Date(item.created_at).toLocaleDateString()}</span>
                                             {item.file_url && (
-                                                <span className="flex items-center text-BRAND-teal font-bold">
+                                                <span
+                                                    className="flex items-center text-BRAND-teal font-bold cursor-pointer hover:underline"
+                                                    onClick={() => handleItemClick(item.file_url)}
+                                                >
                                                     <FileText className="w-3 h-3 mr-1" /> PDF/Attachment
                                                 </span>
                                             )}
                                         </div>
-                                        <h2 className="text-xl font-bold text-BRAND-deepBlue mb-4 line-clamp-2">{item.title}</h2>
+                                        <h2
+                                            className="text-xl font-bold text-BRAND-deepBlue mb-4 line-clamp-2 cursor-pointer hover:text-BRAND-teal transition-colors"
+                                            onClick={() => handleItemClick(item.file_url || item.thumbnail_url)}
+                                        >
+                                            {item.title}
+                                        </h2>
                                         <p className="text-[13px] text-gray-600 leading-relaxed line-clamp-6 whitespace-pre-line">
                                             {item.content}
                                         </p>
