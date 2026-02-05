@@ -108,11 +108,49 @@ export function BrandStory() {
                         </motion.div>
                     </div>
                 </div>
+            </section>
 
-                {/* Background Ethereal Light */}
-                <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-BRAND-aqua/20 blur-[150px] rounded-full animate-pulse" />
+            {/* CEO Message Section (New) */}
+            <section className="py-24 bg-white relative">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true }}
+                        className="max-w-2xl mx-auto"
+                    >
+                        <div className="text-center mb-12">
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="text-BRAND-teal text-xs font-bold tracking-[0.2em] uppercase mb-4 block"
+                            >
+                                {t('brandStory.ceoMessage.title')}
+                            </motion.span>
+                            <div className="h-px w-12 bg-gray-200 mx-auto" />
+                        </div>
+
+                        <div className="space-y-6 text-[13px] text-gray-600 leading-[1.8] font-light text-center md:text-left">
+                            {t('brandStory.ceoMessage.body').split('\n').map((line, i) => (
+                                <p key={i} className={line.trim() === '' ? 'h-4' : ''}>
+                                    {line}
+                                </p>
+                            ))}
+                        </div>
+
+                        <div className="mt-16 text-right">
+                            <p className="text-BRAND-deepBlue font-serif italic text-lg">
+                                {t('brandStory.ceoMessage.signature')}
+                            </p>
+                            <div className="mt-2 h-0.5 w-24 bg-BRAND-teal/30 ml-auto" />
+                        </div>
+                    </motion.div>
                 </div>
+
+                {/* Subtle decorative background */}
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -z-10" />
             </section>
         </div>
     );

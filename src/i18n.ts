@@ -63,7 +63,12 @@ const resources = {
                 "philosophyBody1": "Deep in the East Sea, 1,032 meters below the surface, exists a purity untouched by modern civilization. Aeterno captures this pristine essence, preserved in high pressure and low temperature for centuries.",
                 "philosophyBody2": "It is not just water. It is history, science, and the purest form of hydration nature has to offer.",
                 "narration1": "When all the waters of the world compromised with pollution, AETERNO entered into deep silence. An abyss 1,032m deep where even light cannot reach. The water aged there for centuries is not just hydration. It is the most primordial life force that awakens your cells.",
-                "narration2": "We do not create water; we draw from the primordial depths."
+                "narration2": "We do not create water; we draw from the primordial depths.",
+                "ceoMessage": {
+                    "title": "CEO’s Message",
+                    "body": "AETERNO is not just water.\nIt is pure depth refined by nature and validated by science.\n\nSourced from ultra-deep ocean waters over 1,000 meters below the surface,\nAETERNO is born in an environment untouched by modern pollution,\nnaturally aged through time and darkness.\nWe honor this depth and deliver it as the most reliable hydration for everyday life.\n\nGuided by nature, science, and trust,\nAETERNO will continue to set a new standard for premium hydration.\n\nThank you.",
+                    "signature": "CEO of AETERNO, S.H. Lee"
+                }
             }
         }
     },
@@ -128,7 +133,12 @@ const resources = {
                 "philosophyBody1": "동해 수심 1,032m, 현대 문명이 닿지 않은 순수함이 그곳에 있습니다. 에테르노(AETERNO)는 수세기에 걸쳐 고압과 저온 속에서 보존된 태고의 정수를 담아냅니다.",
                 "philosophyBody2": "이것은 단순한 물이 아닙니다. 자연이 선사할 수 있는 가장 순수한 형태의 수분이며, 동시에 역사이자 과학입니다.",
                 "narration1": "세상의 모든 물이 오염과 타협할 때, 에테르노(AETERNO)는 깊은 침묵 속으로 들어갔습니다. 빛조차 닿지 않는 1,032m의 심연. 그곳에서 수세기의 시간 동안 숙성된 물은 단순한 수분이 아닙니다. 그것은 당신의 세포를 깨우는 가장 원초적인 생명력입니다.",
-                "narration2": "우리는 물을 만드는 것이 아니라, 태고의 깊이를 길어 올립니다."
+                "narration2": "우리는 물을 만드는 것이 아니라, 태고의 깊이를 길어 올립니다.",
+                "ceoMessage": {
+                    "title": "대표이사 인사말",
+                    "body": "AETERNO는 단순한 물이 아닌,\n자연이 가장 깊은 곳에서 완성한 본질적인 순수함과 과학적 가치를 전합니다.\n\n1,000미터가 넘는 심해에서 오랜 시간 순환하며 숙성된 해양심층수는\n오염으로부터 완전히 분리된 환경 속에서 탄생한 자연의 결정체입니다.\nAETERNO는 이 깊이를 존중하고, 과학으로 검증하여\n당신의 일상과 건강에 가장 신뢰할 수 있는 물을 제공합니다.\n\n앞으로도 AETERNO는\n자연, 과학, 그리고 신뢰를 기준으로\n프리미엄 수분 섭취의 새로운 기준을 만들어가겠습니다.\n\n감사합니다.",
+                    "signature": "AETERNO 대표 이상화 드림"
+                }
             }
         }
     },
