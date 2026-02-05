@@ -16,8 +16,10 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        header: ['Inter', '"Space Grotesk"', 'sans-serif'],
+        body: ['Pretendard', '"Noto Sans KR"', 'sans-serif'],
+        serif: ['Inter', '"Space Grotesk"', 'sans-serif'],
+        sans: ['Pretendard', 'Inter', 'sans-serif'],
       },
     },
   },
