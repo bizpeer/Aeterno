@@ -297,7 +297,7 @@ export function Admin() {
                     <div className="space-y-6">
                         <div className="flex justify-between items-center">
                             <h2 className="text-2xl font-bold">Manage Products</h2>
-                            <Button onClick={() => setEditingProduct({ id: '', name: '', description: '', images: ['', '', '', ''], details: {} })}>
+                            <Button onClick={() => setEditingProduct({ id: '', name: '', description: '', images: ['', ''], details: { specs: '' } })}>
                                 <Plus className="w-4 h-4 mr-2" /> Add Product
                             </Button>
                         </div>
@@ -319,16 +319,16 @@ export function Admin() {
                                         value={editingProduct.description}
                                         onChange={e => setEditingProduct({ ...editingProduct, description: e.target.value })}
                                     />
-                                    <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        {[0, 1, 2, 3].map(i => (
+                                    <div className="md:col-span-2 grid grid-cols-2 gap-4">
+                                        {[0, 1].map(i => (
                                             <div key={i} className="flex flex-col space-y-2">
                                                 {editingProduct.images[i] && (
-                                                    <img src={editingProduct.images[i]} className="w-full h-20 object-cover rounded border" alt="" />
+                                                    <img src={editingProduct.images[i]} className="w-full h-24 object-cover rounded border" alt="" />
                                                 )}
                                                 <input
                                                     type="text"
                                                     placeholder={`Image URL ${i + 1}`}
-                                                    className="w-full p-2 border rounded text-[10px]"
+                                                    className="w-full p-2 border rounded text-xs"
                                                     value={editingProduct.images[i] || ''}
                                                     onChange={e => {
                                                         const newImgs = [...editingProduct.images];
@@ -336,8 +336,9 @@ export function Admin() {
                                                         setEditingProduct({ ...editingProduct, images: newImgs });
                                                     }}
                                                 />
-                                                <label className="flex items-center justify-center p-2 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors">
-                                                    {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-gray-400" />}
+                                                <label className="flex items-center justify-center p-2 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors text-xs font-medium">
+                                                    {isUploading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Upload className="w-4 h-4 text-gray-400 mr-2" />}
+                                                    Upload Image {i + 1}
                                                     <input
                                                         type="file"
                                                         className="hidden"
@@ -357,6 +358,19 @@ export function Admin() {
                                                 </label>
                                             </div>
                                         ))}
+                                    </div>
+                                    <div className="md:col-span-2">
+                                        <label className="block text-sm font-bold mb-2">Product Specification</label>
+                                        <textarea
+                                            placeholder="Enter product specification (e.g., pH: 7.2, Mineral Content: High...)"
+                                            className="w-full p-2 border rounded h-32"
+                                            value={editingProduct.details?.specs || ''}
+                                            onChange={e => setEditingProduct({
+                                                ...editingProduct,
+                                                details: { ...editingProduct.details, specs: e.target.value }
+                                            })}
+                                        />
+                                        <p className="text-[10px] text-gray-400 mt-1">Use new lines for each specification item.</p>
                                     </div>
                                 </div>
                                 <div className="mt-4 flex space-x-2">

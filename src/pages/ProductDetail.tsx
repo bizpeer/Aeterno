@@ -95,7 +95,7 @@ export function ProductDetail() {
                             )}
                         </div>
 
-                        <div className="grid grid-cols-4 gap-4">
+                        <div className={`grid ${product.images.length === 2 ? 'grid-cols-2' : 'grid-cols-4'} gap-4`}>
                             {product.images.map((img, i) => (
                                 <button
                                     key={i}
@@ -123,27 +123,31 @@ export function ProductDetail() {
 
                             <div className="bg-gray-50 p-8 rounded-2xl mb-8 space-y-4">
                                 <h3 className="font-bold uppercase text-sm tracking-wider text-gray-400">Specifications</h3>
-                                <div className="grid grid-cols-2 gap-4">
-                                    {Object.entries(product.details || {}).map(([key, value]: [string, any]) => (
-                                        <div key={key}>
-                                            <span className="block text-xs text-gray-400 uppercase">{key}</span>
-                                            <span className="font-bold">{value}</span>
+                                {product.details?.specs ? (
+                                    <div className="col-span-2 space-y-4">
+                                        {product.details.specs.split('\n').filter((line: string) => line.trim()).map((line: string, i: number) => {
+                                            const [key, ...valueParts] = line.split(':');
+                                            const value = valueParts.join(':').trim();
+                                            return (
+                                                <div key={i} className="flex border-b border-gray-100 pb-2">
+                                                    <span className="w-1/3 text-xs text-gray-400 uppercase font-medium">{key.trim()}</span>
+                                                    <span className="w-2/3 font-bold text-sm">{value}</span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                ) : (
+                                    <>
+                                        <div>
+                                            <span className="block text-xs text-gray-400 uppercase">pH Level</span>
+                                            <span className="font-bold">7.4 - 7.6</span>
                                         </div>
-                                    ))}
-                                    {/* Default specs if none provided */}
-                                    {!product.details && (
-                                        <>
-                                            <div>
-                                                <span className="block text-xs text-gray-400 uppercase">pH Level</span>
-                                                <span className="font-bold">7.4 - 7.6</span>
-                                            </div>
-                                            <div>
-                                                <span className="block text-xs text-gray-400 uppercase">Origin</span>
-                                                <span className="font-bold">Natural Spring</span>
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-400 uppercase">Origin</span>
+                                            <span className="font-bold">Natural Spring</span>
+                                        </div>
+                                    </>
+                                )}
                             </div>
 
                             <Button
