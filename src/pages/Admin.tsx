@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../components/common/Button';
-import { Trash2, Bell, Package, Film, MessageSquare, Plus, Save, X } from 'lucide-react';
+import { Trash2, Bell, Package, Film, MessageSquare, Plus, Save, X, Upload, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 interface Inquiry {
@@ -43,6 +43,7 @@ export function Admin() {
 
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
     const [editingMedia, setEditingMedia] = useState<MediaAsset | null>(null);
+    const [isUploading, setIsUploading] = useState(false);
 
     useEffect(() => {
         if (isLoggedIn) {
@@ -103,6 +104,39 @@ export function Admin() {
         sessionStorage.removeItem('isAdminLoggedIn');
     };
 
+    const handleFileUpload = async (file: File, folder: string) => {
+        try {
+            setIsUploading(true);
+            const fileExt = file.name.split('.').pop();
+            const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
+            const filePath = `${folder}/${fileName}`;
+
+            const { error: uploadError } = await supabase.storage
+                .from('aeterno-assets')
+                .upload(filePath, file);
+
+            if (uploadError) throw uploadError;
+
+            const { data: { publicUrl } } = supabase.storage
+                .from('aeterno-assets')
+                .getPublicUrl(filePath);
+
+            return publicUrl;
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            alert('Error uploading file');
+            return null;
+        } finally {
+            setIsUploading(false);
+        }
+    };
+
+    const formatYoutubeLink = (link: string) => {
+        if (!link) return '';
+        if (link.startsWith('http')) return link;
+        return `https://www.youtube.com/watch?v=${link}`;
+    };
+
     const handleDeleteInquiry = async (id: string) => {
         if (!confirm('Are you sure you want to delete this inquiry?')) return;
         const { error } = await supabase.from('inquiries').delete().eq('id', id);
@@ -148,7 +182,7 @@ export function Admin() {
                 type: editingMedia.type,
                 title: editingMedia.title,
                 thumbnail_url: editingMedia.thumbnail_url,
-                youtube_link: editingMedia.youtube_link,
+                youtube_link: formatYoutubeLink(editingMedia.youtube_link),
                 file_url: editingMedia.file_url,
                 order_index: editingMedia.order_index
             });
@@ -285,20 +319,43 @@ export function Admin() {
                                         value={editingProduct.description}
                                         onChange={e => setEditingProduct({ ...editingProduct, description: e.target.value })}
                                     />
-                                    <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-2">
+                                    <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
                                         {[0, 1, 2, 3].map(i => (
-                                            <input
-                                                key={i}
-                                                type="text"
-                                                placeholder={`Image URL ${i + 1}`}
-                                                className="w-full p-2 border rounded text-xs"
-                                                value={editingProduct.images[i] || ''}
-                                                onChange={e => {
-                                                    const newImgs = [...editingProduct.images];
-                                                    newImgs[i] = e.target.value;
-                                                    setEditingProduct({ ...editingProduct, images: newImgs });
-                                                }}
-                                            />
+                                            <div key={i} className="flex flex-col space-y-2">
+                                                {editingProduct.images[i] && (
+                                                    <img src={editingProduct.images[i]} className="w-full h-20 object-cover rounded border" alt="" />
+                                                )}
+                                                <input
+                                                    type="text"
+                                                    placeholder={`Image URL ${i + 1}`}
+                                                    className="w-full p-2 border rounded text-[10px]"
+                                                    value={editingProduct.images[i] || ''}
+                                                    onChange={e => {
+                                                        const newImgs = [...editingProduct.images];
+                                                        newImgs[i] = e.target.value;
+                                                        setEditingProduct({ ...editingProduct, images: newImgs });
+                                                    }}
+                                                />
+                                                <label className="flex items-center justify-center p-2 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors">
+                                                    {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-gray-400" />}
+                                                    <input
+                                                        type="file"
+                                                        className="hidden"
+                                                        accept="image/*"
+                                                        onChange={async (e) => {
+                                                            const file = e.target.files?.[0];
+                                                            if (file) {
+                                                                const url = await handleFileUpload(file, 'products');
+                                                                if (url) {
+                                                                    const newImgs = [...editingProduct.images];
+                                                                    newImgs[i] = url;
+                                                                    setEditingProduct({ ...editingProduct, images: newImgs });
+                                                                }
+                                                            }
+                                                        }}
+                                                    />
+                                                </label>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
@@ -355,16 +412,38 @@ export function Admin() {
                                         value={editingMedia.title}
                                         onChange={e => setEditingMedia({ ...editingMedia, title: e.target.value })}
                                     />
+                                    <div className="flex flex-col space-y-2">
+                                        {editingMedia.thumbnail_url && (
+                                            <img src={editingMedia.thumbnail_url} className="w-full h-32 object-cover rounded border" alt="" />
+                                        )}
+                                        <div className="flex space-x-2">
+                                            <input
+                                                type="text"
+                                                placeholder="Thumbnail URL"
+                                                className="flex-grow p-2 border rounded"
+                                                value={editingMedia.thumbnail_url}
+                                                onChange={e => setEditingMedia({ ...editingMedia, thumbnail_url: e.target.value })}
+                                            />
+                                            <label className="flex items-center justify-center px-4 bg-gray-50 border border-dashed rounded cursor-pointer hover:bg-gray-100 transition-colors">
+                                                {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4 text-gray-400" />}
+                                                <input
+                                                    type="file"
+                                                    className="hidden"
+                                                    accept="image/*"
+                                                    onChange={async (e) => {
+                                                        const file = e.target.files?.[0];
+                                                        if (file) {
+                                                            const url = await handleFileUpload(file, 'media');
+                                                            if (url) setEditingMedia({ ...editingMedia, thumbnail_url: url });
+                                                        }
+                                                    }}
+                                                />
+                                            </label>
+                                        </div>
+                                    </div>
                                     <input
                                         type="text"
-                                        placeholder="Thumbnail URL"
-                                        className="w-full p-2 border rounded"
-                                        value={editingMedia.thumbnail_url}
-                                        onChange={e => setEditingMedia({ ...editingMedia, thumbnail_url: e.target.value })}
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder={editingMedia.type === 'video' ? 'YouTube link' : 'File URL'}
+                                        placeholder={editingMedia.type === 'video' ? 'YouTube link (or ID)' : 'File URL'}
                                         className="w-full p-2 border rounded"
                                         value={editingMedia.type === 'video' ? editingMedia.youtube_link : editingMedia.file_url}
                                         onChange={e => editingMedia.type === 'video' ? setEditingMedia({ ...editingMedia, youtube_link: e.target.value }) : setEditingMedia({ ...editingMedia, file_url: e.target.value })}

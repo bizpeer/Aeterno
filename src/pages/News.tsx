@@ -121,15 +121,17 @@ export function News() {
                                         </div>
                                     </div>
                                     {item.file_url ? (
-                                        <a href={item.file_url} target="_blank" rel="noreferrer">
+                                        <a href={item.file_url} target="_blank" rel="noopener noreferrer">
                                             <Button variant="ghost" className="text-BRAND-aqua hover:text-white">
                                                 <Download className="w-5 h-5" />
                                             </Button>
                                         </a>
                                     ) : (
-                                        <Button variant="ghost" className="text-BRAND-aqua hover:text-white" onClick={() => window.open(item.youtube_link, '_blank')}>
-                                            <ExternalLink className="w-5 h-5" />
-                                        </Button>
+                                        <a href={item.youtube_link} target="_blank" rel="noopener noreferrer">
+                                            <Button variant="ghost" className="text-BRAND-aqua hover:text-white">
+                                                <ExternalLink className="w-5 h-5" />
+                                            </Button>
+                                        </a>
                                     )}
                                 </div>
                             ))}
