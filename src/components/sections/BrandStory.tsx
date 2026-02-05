@@ -132,12 +132,8 @@ export function BrandStory() {
                             <div className="h-px w-12 bg-gray-200 mx-auto" />
                         </div>
 
-                        <div className="space-y-6 text-[13px] text-gray-600 leading-[1.8] font-light text-center md:text-left">
-                            {t('brandStory.ceoMessage.body').split('\n').map((line, i) => (
-                                <p key={i} className={line.trim() === '' ? 'h-4' : ''}>
-                                    {line}
-                                </p>
-                            ))}
+                        <div className="text-[13px] text-gray-600 leading-[1.7] font-light text-center md:text-left whitespace-pre-line">
+                            {t('brandStory.ceoMessage.body')}
                         </div>
 
                         <div className="mt-16 text-right">

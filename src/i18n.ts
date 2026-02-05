@@ -66,7 +66,7 @@ const resources = {
                 "narration2": "We do not create water; we draw from the primordial depths.",
                 "ceoMessage": {
                     "title": "CEO’s Message",
-                    "body": "AETERNO is not just water.\nIt is pure depth refined by nature and validated by science.\n\nSourced from ultra-deep ocean waters over 1,000 meters below the surface,\nAETERNO is born in an environment untouched by modern pollution,\nnaturally aged through time and darkness.\nWe honor this depth and deliver it as the most reliable hydration for everyday life.\n\nGuided by nature, science, and trust,\nAETERNO will continue to set a new standard for premium hydration.\n\nThank you.",
+                    "body": "AETERNO is not just water. It is pure depth refined by nature and validated by science.\n\nSourced from ultra-deep ocean waters over 1,000 meters below the surface, AETERNO is born in an environment untouched by modern pollution, naturally aged through time and darkness. We honor this depth and deliver it as the most reliable hydration for everyday life.\n\nGuided by nature, science, and trust, AETERNO will continue to set a new standard for premium hydration.\n\nThank you.",
                     "signature": "CEO of AETERNO, S.H. Lee"
                 }
             }
@@ -136,7 +136,7 @@ const resources = {
                 "narration2": "우리는 물을 만드는 것이 아니라, 태고의 깊이를 길어 올립니다.",
                 "ceoMessage": {
                     "title": "대표이사 인사말",
-                    "body": "AETERNO는 단순한 물이 아닌,\n자연이 가장 깊은 곳에서 완성한 본질적인 순수함과 과학적 가치를 전합니다.\n\n1,000미터가 넘는 심해에서 오랜 시간 순환하며 숙성된 해양심층수는\n오염으로부터 완전히 분리된 환경 속에서 탄생한 자연의 결정체입니다.\nAETERNO는 이 깊이를 존중하고, 과학으로 검증하여\n당신의 일상과 건강에 가장 신뢰할 수 있는 물을 제공합니다.\n\n앞으로도 AETERNO는\n자연, 과학, 그리고 신뢰를 기준으로\n프리미엄 수분 섭취의 새로운 기준을 만들어가겠습니다.\n\n감사합니다.",
+                    "body": "AETERNO는 단순한 물이 아닌, 자연이 가장 깊은 곳에서 완성한 본질적인 순수함과 과학적 가치를 전합니다.\n\n1,000미터가 넘는 심해에서 오랜 시간 순환하며 숙성된 해양심층수는 오염으로부터 완전히 분리된 환경 속에서 탄생한 자연의 결정체입니다. AETERNO는 이 깊이를 존중하고, 과학으로 검증하여 당신의 일상과 건강에 가장 신뢰할 수 있는 물을 제공합니다.\n\n앞으로도 AETERNO는 자연, 과학, 그리고 신뢰를 기준으로 프리미엄 수분 섭취의 새로운 기준을 만들어가겠습니다.\n\n감사합니다.",
                     "signature": "AETERNO 대표 이상화 드림"
                 }
             }
