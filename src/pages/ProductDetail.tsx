@@ -67,7 +67,7 @@ export function ProductDetail() {
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={activeImageIndex}
-                                    src={product.images[activeImageIndex]}
+                                    src={product.images.slice(0, 2)[activeImageIndex]}
                                     alt={product.name}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -77,16 +77,16 @@ export function ProductDetail() {
                                 />
                             </AnimatePresence>
 
-                            {product.images.length > 1 && (
+                            {product.images.slice(0, 2).length > 1 && (
                                 <>
                                     <button
-                                        onClick={() => setActiveImageIndex(prev => prev === 0 ? product.images.length - 1 : prev - 1)}
+                                        onClick={() => setActiveImageIndex(prev => prev === 0 ? product.images.slice(0, 2).length - 1 : prev - 1)}
                                         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
                                     >
                                         <ChevronLeft className="w-6 h-6" />
                                     </button>
                                     <button
-                                        onClick={() => setActiveImageIndex(prev => prev === product.images.length - 1 ? 0 : prev + 1)}
+                                        onClick={() => setActiveImageIndex(prev => prev === product.images.slice(0, 2).length - 1 ? 0 : prev + 1)}
                                         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
                                     >
                                         <ChevronRight className="w-6 h-6" />
@@ -95,8 +95,8 @@ export function ProductDetail() {
                             )}
                         </div>
 
-                        <div className={`grid ${product.images.length === 2 ? 'grid-cols-2' : 'grid-cols-4'} gap-4`}>
-                            {product.images.map((img, i) => (
+                        <div className="grid grid-cols-2 gap-4">
+                            {product.images.slice(0, 2).map((img, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setActiveImageIndex(i)}
