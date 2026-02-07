@@ -69,6 +69,102 @@ const resources = {
                     "body": "AETERNO is not just water. It is pure depth refined by nature and validated by science.\n\nSourced from ultra-deep ocean waters over 1,000 meters below the surface, AETERNO is born in an environment untouched by modern pollution, naturally aged through time and darkness. We honor this depth and deliver it as the most reliable hydration for everyday life.\n\nGuided by nature, science, and trust, AETERNO will continue to set a new standard for premium hydration.\n\nThank you.",
                     "signature": "CEO of AETERNO, S.H. Lee"
                 }
+            },
+            "efficacy": {
+                "hero": {
+                    "title": "Scientific Efficacy & Clinical Value of DSW",
+                    "desc": "Deep Sea Water (DSW), sourced from depths below 200m, is a pristine resource characterized by stable low temperatures and a unique mineral balance. This report synthesizes the molecular mechanisms and clinical outcomes of DSW in metabolism, cardiovascular health, and recovery.",
+                    "badges": {
+                        "temp": "2°C", "temp_label": "Low-Temp Stability",
+                        "ratio": "Mg:Ca 3:1", "ratio_label": "Optimal Bioavailability",
+                        "purity": "Purity", "purity_label": "Zero Pathogen Content"
+                    }
+                },
+                "minerals": {
+                    "title": "Comparative Mineral Analysis",
+                    "desc": "DSW contains a high density of essential minerals including Magnesium (Mg), Calcium (Ca), and Potassium (K). Its mineral balance closely mimics human body fluids, ensuring rapid cellular absorption.",
+                    "tabs": { "conc": "Concentration (mg/L)", "ratio": "Ratio Analysis (Mg:Ca)" },
+                    "lab_insight": "DSW holds approximately 10x the Magnesium found in surface water. The unique 3:1 Mg:Ca ratio is clinically noted to enhance the metabolic processing of glucose and lipids.",
+                    "roles": {
+                        "mg": "Energy metabolism, enzyme activation, and muscle relaxation.",
+                        "mg_label": "Magnesium (Mg)",
+                        "ca": "Bone density, nerve transmission, and blood coagulation.",
+                        "ca_label": "Calcium (Ca)",
+                        "k": "Cellular osmotic pressure and water balance regulation.",
+                        "k_label": "Potassium (K)",
+                        "na_label": "Sodium (Na)"
+                    },
+                    "labels": {
+                        "dsw": "Deep Sea Water",
+                        "surface": "Surface Water",
+                        "tap": "Tap Water",
+                        "milk": "Milk"
+                    }
+                },
+                "clinical": {
+                    "title": "Clinical Efficacy Dashboard",
+                    "desc": "Explore peer-reviewed findings across four key health metrics. Each tab reveals specific study cohorts, physiological outcomes, and data visualizations.",
+                    "labels": {
+                        "control": "Control (Tap Water)",
+                        "dsw": "DSW Cohort",
+                        "weight_gain": "Weight Gain (g)",
+                        "cholesterol": "Total Cholesterol (mg/dL)",
+                        "skin_score": "Clinical Skin Score (SCORAD)",
+                        "tap_lactate": "Tap Water (Lactate)",
+                        "dsw_lactate": "DSW (Lactate)"
+                    },
+                    "tabs": {
+                        "metabolic": { "title": "Metabolic", "sub": "Weight & Blood Glucose" },
+                        "cardio": { "title": "Cardiovascular", "sub": "Cholesterol & Blood Pressure" },
+                        "skin": { "title": "Dermatological", "sub": "Atopy & Hydration" },
+                        "fatigue": { "title": "Recovery", "sub": "Lactate Decomposition" }
+                    },
+                    "dash": {
+                        "metabolic": {
+                            "title": "Anti-Obesity & Metabolism",
+                            "desc": "Studies using high-fat diet models indicate that DSW intake at 1000 hardness significantly inhibits weight gain compared to tap water. This is attributed to the mineral-induced activation of AMPK, a master metabolic regulator.",
+                            "badge": "Source: Hwang et al. 2014",
+                            "stat1": "-7%", "stat1_label": "Weight Inhibition",
+                            "stat2": "-15%", "stat2_label": "Glucose Reduction",
+                            "mechanism": "AMPK Activation & Adipocyte Inhibition"
+                        },
+                        "cardio": {
+                            "title": "Cardiovascular Risk Mitigation",
+                            "desc": "Sustained DSW consumption is linked to a reduction in TC (Total Cholesterol) and LDL. In hyperlipidemia models, DSW improves vascular endothelial function and increases blood flow velocity.",
+                            "badge": "Source: Kim et al. 2018",
+                            "stat1": "-18%", "stat1_label": "LDL Cholesterol Reduction",
+                            "stat2": "↑12%", "stat2_label": "Blood Flow Velocity",
+                            "mechanism": "Vascular Dilation"
+                        },
+                        "skin": {
+                            "title": "Atopic Dermatitis & Skin Barrier",
+                            "desc": "Mineral-balanced DSW strengthens the skin barrier and inhibits inflammatory cytokine production. Clinical scores show reduced serum IgE levels and scratching behavior in AD models.",
+                            "badge": "Source: Miyamura et al. 2009",
+                            "stat1": "+35%", "stat1_label": "Skin Hydration Gain",
+                            "stat2": "-50%", "stat2_label": "Inflammation Score",
+                            "mechanism": "IgE Inhibition"
+                        },
+                        "fatigue": {
+                            "title": "Post-Exercise Recovery",
+                            "desc": "DSW facilitates the decomposition of lactate, a metabolic byproduct of intense exercise. Athletes consuming DSW recover baseline blood lactate levels faster than those drinking regular mineral water.",
+                            "badge": "Source: Stasiule et al. 2014",
+                            "stat1": "1.5x", "stat1_label": "Recovery Speed Increase",
+                            "stat2": "Faster", "stat2_label": "Absorption Rate",
+                            "mechanism": "Lactate Clearing"
+                        }
+                    }
+                },
+                "process": {
+                    "title": "Advanced Production Process",
+                    "desc": "Drinkable Deep Sea Water is produced through a precise scientific flow that ensures safety while maximizing mineral efficacy. The core technology lies in selective ion-exchange and desalination.",
+                    "steps": {
+                        "intake": { "title": "1. Intake", "desc": "Direct pipeline intake from depths below 200m to maintain low-temp purity." },
+                        "desalination": { "title": "2. RO Desalination", "desc": "Reverse Osmosis filters remove NaCl and impurities while isolating mineral salts." },
+                        "modulation": { "title": "3. Modulation", "desc": "Mineral concentrates are re-blended to optimize Mg:Ca for human bio-absorption." },
+                        "sterilization": { "title": "4. Sterilization", "desc": "Final aseptic packaging ensures a zero-pathogen shelf-stable product." }
+                    }
+                },
+                "references": { "title": "Academic References" }
             }
         }
     },
@@ -139,6 +235,102 @@ const resources = {
                     "body": "AETERNO는 단순한 물이 아닌, 자연이 가장 깊은 곳에서 완성한 본질적인 순수함과 과학적 가치를 전합니다.\n\n1,000미터가 넘는 심해에서 오랜 시간 순환하며 숙성된 해양심층수는 오염으로부터 완전히 분리된 환경 속에서 탄생한 자연의 결정체입니다. AETERNO는 이 깊이를 존중하고, 과학으로 검증하여 당신의 일상과 건강에 가장 신뢰할 수 있는 물을 제공합니다.\n\n앞으로도 AETERNO는 자연, 과학, 그리고 신뢰를 기준으로 프리미엄 수분 섭취의 새로운 기준을 만들어가겠습니다.\n\n감사합니다.",
                     "signature": "AETERNO 대표 이상화 드림"
                 }
+            },
+            "efficacy": {
+                "hero": {
+                    "title": "해양심층수의 과학적 효능 & 임상적 가치",
+                    "desc": "수심 200m 이하에서 채취되는 해양심층수(DSW)는 안정적인 저온성과 독특한 미네랄 균형을 특징으로 하는 청정 자원입니다. 본 리포트는 대사, 심혈관 건강 및 회복에서 해양심층수의 분자적 메커니즘과 임상 결과를 종합합니다.",
+                    "badges": {
+                        "temp": "2°C", "temp_label": "저온 안정성",
+                        "ratio": "Mg:Ca 3:1", "ratio_label": "최적의 생체 이용률",
+                        "purity": "순수성", "purity_label": "병원균 제로"
+                    }
+                },
+                "minerals": {
+                    "title": "미네랄 성분 비교 분석",
+                    "desc": "해양심층수는 마그네슘(Mg), 칼슘(Ca), 칼륨(K)을 포함한 필수 미네랄이 고농도로 함유되어 있습니다. 미네랄 밸런스가 인체 체액과 유사하여 빠른 세포 흡수를 보장합니다.",
+                    "tabs": { "conc": "농도 분석 (mg/L)", "ratio": "비율 분석 (Mg:Ca)" },
+                    "lab_insight": "해양심층수는 표층수보다 약 10배 많은 마그네슘을 보유하고 있습니다. 독특한 3:1 마그네슘:칼슘 비율은 포도당과 지질의 대사 과정을 촉진하는 것으로 임상적으로 알려져 있습니다.",
+                    "roles": {
+                        "mg": "에너지 대사, 효소 활성화 및 근육 이완.",
+                        "mg_label": "마그네슘 (Mg)",
+                        "ca": "골밀도, 신경 전달 및 혈액 응고 조절.",
+                        "ca_label": "칼슘 (Ca)",
+                        "k": "세포 삼투압 및 수분 균형 조절.",
+                        "k_label": "칼륨 (K)",
+                        "na_label": "나트륨 (Na)"
+                    },
+                    "labels": {
+                        "dsw": "해양심층수",
+                        "surface": "표층수",
+                        "tap": "수돗물",
+                        "milk": "우유"
+                    }
+                },
+                "clinical": {
+                    "title": "임상 효능 대시보드",
+                    "desc": "네 가지 핵심 건강 지표에 대한 동료 검토 연구 결과를 살펴보세요. 각 탭은 특정 연구 그룹, 생리학적 결과 및 데이터 시각화를 보여줍니다.",
+                    "labels": {
+                        "control": "대조군 (수돗물)",
+                        "dsw": "해양심층수군",
+                        "weight_gain": "체중 증가량 (g)",
+                        "cholesterol": "총 콜레스테롤 (mg/dL)",
+                        "skin_score": "임상 피부 점수 (SCORAD)",
+                        "tap_lactate": "수돗물 (젖산)",
+                        "dsw_lactate": "해양심층수 (젖산)"
+                    },
+                    "tabs": {
+                        "metabolic": { "title": "신진대사", "sub": "체중 및 혈당 관리" },
+                        "cardio": { "title": "심혈관", "sub": "콜레스테롤 및 혈압" },
+                        "skin": { "title": "피부 건강", "sub": "아토피 및 보습" },
+                        "fatigue": { "title": "회복", "sub": "젖산 분해" }
+                    },
+                    "dash": {
+                        "metabolic": {
+                            "title": "항비만 및 신진대사",
+                            "desc": "고지방 식이 모델 연구에 따르면, 경도 1000의 해양심층수 섭취는 수돗물에 비해 체중 증가를 유의미하게 억제합니다. 이는 핵심 대사 조절 인자인 AMPK의 미네랄 유도 활성화 때문입니다.",
+                            "badge": "출처: Hwang et al. 2014",
+                            "stat1": "-7%", "stat1_label": "체중 증가 억제",
+                            "stat2": "-15%", "stat2_label": "혈당 감소",
+                            "mechanism": "AMPK 활성화 및 지방세포 억제"
+                        },
+                        "cardio": {
+                            "title": "심혈관 위험 완화",
+                            "desc": "지속적인 해양심층수 섭취는 총 콜레스테롤(TC)과 LDL 감소와 관련이 있습니다. 고지혈증 모델에서 해양심층수는 혈관 내피 기능을 개선하고 혈류 속도를 증가시킵니다.",
+                            "badge": "출처: Kim et al. 2018",
+                            "stat1": "-18%", "stat1_label": "LDL 콜레스테롤 감소",
+                            "stat2": "↑12%", "stat2_label": "혈류 속도 증가",
+                            "mechanism": "혈관 확장"
+                        },
+                        "skin": {
+                            "title": "아토피 피부염 및 피부 장벽",
+                            "desc": "미네랄 균형이 잡힌 해양심층수는 피부 장벽을 강화하고 염증성 사이토카인 생성을 억제합니다. 임상 점수는 아토피 모델에서 혈청 IgE 수치와 가려움증 행동의 감소를 보여줍니다.",
+                            "badge": "출처: Miyamura et al. 2009",
+                            "stat1": "+35%", "stat1_label": "피부 보습력 증가",
+                            "stat2": "-50%", "stat2_label": "염증 지수 감소",
+                            "mechanism": "IgE 억제"
+                        },
+                        "fatigue": {
+                            "title": "운동 후 피로 회복",
+                            "desc": "해양심층수는 고강도 운동의 대사 부산물인 젖산의 분해를 촉진합니다. 해양심층수를 섭취한 운동선수는 일반 생수를 마신 경우보다 기본 혈중 젖산 수치를 더 빨리 회복합니다.",
+                            "badge": "출처: Stasiule et al. 2014",
+                            "stat1": "1.5배", "stat1_label": "회복 속도 증가",
+                            "stat2": "빠름", "stat2_label": "흡수율",
+                            "mechanism": "젖산 제거"
+                        }
+                    }
+                },
+                "process": {
+                    "title": "최첨단 생산 공정",
+                    "desc": "마실 수 있는 해양심층수는 미네랄 효능을 극대화하면서 안전을 보장하는 정밀한 과학적 흐름을 통해 생산됩니다. 핵심 기술은 선택적 이온 교환 및 탈염에 있습니다.",
+                    "steps": {
+                        "intake": { "title": "1. 취수", "desc": "저온 순도를 유지하기 위해 수심 200m 이하에서 직접 파이프라인으로 취수합니다." },
+                        "desalination": { "title": "2. RO 탈염", "desc": "역삼투압 필터가 염분(NaCl)과 불순물을 제거하는 동시에 미네랄 염을 분리합니다." },
+                        "modulation": { "title": "3. 미네랄 조정", "desc": "미네랄 농축액을 다시 혼합하여 인체 흡수에 최적화된 Mg:Ca 비율을 맞춥니다." },
+                        "sterilization": { "title": "4. 살균 및 포장", "desc": "최종 무균 포장을 통해 병원균 없는 안정적인 제품을 보장합니다." }
+                    }
+                },
+                "references": { "title": "학술 참고 문헌" }
             }
         }
     },
