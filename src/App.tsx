@@ -12,6 +12,7 @@ import { Admin } from './pages/Admin';
 import { News } from './pages/News';
 import { ProductDetail } from './pages/ProductDetail';
 import { Announcement } from './pages/Announcement';
+import { ScientificEfficacy } from './pages/ScientificEfficacy';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/:lang/contact" element={<Layout><Contact /></Layout>} />
         <Route path="/:lang/news" element={<Layout><News /></Layout>} />
         <Route path="/:lang/announcement" element={<Layout><Announcement /></Layout>} />
+        <Route path="/:lang/clinical" element={<Layout><ScientificEfficacy /></Layout>} />
       </Routes>
     </Router>
   );

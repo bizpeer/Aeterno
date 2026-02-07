@@ -62,6 +62,7 @@ export function Navbar() {
     const navLinks = [
         { key: 'brandData', to: `/${currentLang}/brand-story` },
         { key: 'science', to: `/${currentLang}/science` },
+        { key: 'clinical', to: `/${currentLang}/clinical` },
         { key: 'products', to: `/${currentLang}/products` },
         { key: 'engineering', to: `/${currentLang}/engineering` },
         { key: 'news', to: `/${currentLang}/news` },
