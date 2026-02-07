@@ -32,7 +32,7 @@ ChartJS.register(
     Filler
 );
 
-export default function ScientificEfficacy() {
+export function ScientificEfficacy() {
     const { t } = useTranslation();
     const [mineralMode, setMineralMode] = useState<'concentration' | 'ratio'>('concentration');
     const [dashboardTab, setDashboardTab] = useState<'metabolic' | 'cardio' | 'skin' | 'fatigue'>('metabolic');
