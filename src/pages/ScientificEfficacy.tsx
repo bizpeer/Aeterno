@@ -100,9 +100,9 @@ export function ScientificEfficacy() {
             desc: t('efficacy.clinical.tabs.cardio.sub'),
             citation: "Source: 'Deep Sea Water improves cardiovascular health' - Journal of Marine Science (2020)",
             findings: [
-                { val: "-12%", text: "Systolic BP Reduction" },
-                { val: "+15%", text: "Blood Flow Velocity" },
-                { val: "-8%", text: "Vascular Resistance" }
+                { val: "-12.5%", text: "Systolic BP Reduction" },
+                { val: "+14.8%", text: "Blood Flow Velocity" },
+                { val: "-7.2%", text: "Vascular Resistance" }
             ],
             chartType: 'line',
             chartData: {
@@ -110,7 +110,7 @@ export function ScientificEfficacy() {
                 datasets: [
                     {
                         label: 'Systolic Blood Pressure (mmHg)',
-                        data: [145, 138, 132, 128],
+                        data: [145.2, 138.4, 132.1, 127.8],
                         borderColor: '#0ea5e9',
                         tension: 0.4,
                         fill: true,
@@ -124,9 +124,9 @@ export function ScientificEfficacy() {
             desc: t('efficacy.clinical.tabs.metabolic.sub'),
             citation: "Source: 'Anti-obesity effects of DSW' - Korean Society of Nutrition (2021)",
             findings: [
-                { val: "-18%", text: "LDL Cholesterol" },
-                { val: "-22%", text: "Triglycerides" },
-                { val: "+9%", text: "HDL (Good) Cholesterol" }
+                { val: "-18.2%", text: "LDL Cholesterol" },
+                { val: "-21.5%", text: "Triglycerides" },
+                { val: "+8.7%", text: "HDL (Good) Cholesterol" }
             ],
             chartType: 'bar',
             chartData: {
@@ -134,7 +134,7 @@ export function ScientificEfficacy() {
                 datasets: [
                     {
                         label: 'Total Cholesterol (mg/dL)',
-                        data: [210, 185, 172],
+                        data: [210.5, 185.2, 172.4],
                         backgroundColor: ['#94a3b8', '#38bdf8', '#0ea5e9']
                     }
                 ]
@@ -145,9 +145,9 @@ export function ScientificEfficacy() {
             desc: t('efficacy.clinical.tabs.fatigue.sub'),
             citation: "Source: 'Accelerated Lactate removal with DSW' - Sports Medicine (2019)",
             findings: [
-                { val: "-35%", text: "Lactate Level (Post-exercise)" },
-                { val: "+28%", text: "Glycogen Resynthesis" },
-                { val: "50min", text: "Recovery Time Reduction" }
+                { val: "-35.4%", text: "Lactate Level (Post-exercise)" },
+                { val: "+28.2%", text: "Glycogen Resynthesis" },
+                { val: "52min", text: "Recovery Time Reduction" }
             ],
             chartType: 'line',
             chartData: {
@@ -176,9 +176,9 @@ export function ScientificEfficacy() {
             desc: t('efficacy.clinical.tabs.skin.sub'),
             citation: "Source: 'Atopic dermatitis and Deep Sea Water' - Dermatology Research (2022)",
             findings: [
-                { val: "-45%", text: "TEWL (Water Loss)" },
-                { val: "-38%", text: "Itching Score Index" },
-                { val: "+52%", text: "Skin Barrier Improvement" }
+                { val: "-44.8%", text: "TEWL (Water Loss)" },
+                { val: "-37.6%", text: "Itching Score Index" },
+                { val: "+52.4%", text: "Skin Barrier Improvement" }
             ],
             chartType: 'bar',
             chartData: {

@@ -73,16 +73,16 @@ const resources = {
             "efficacy": {
                 "hero": {
                     "title": "Scientific Efficacy and Clinical Value of Drinkable Deep Sea Water",
-                    "desc": "Deep Sea Water (DSW) is primordial water existing at depths below 200m where sunlight cannot reach. This report analyzes the unique mineral composition of DSW and its scientific mechanisms for human metabolism, cardiovascular health, and fatigue recovery.",
+                    "desc": "Deep Sea Water (DSW) is primordial water existing at depths below 200m where sunlight cannot reach. This report comprehensively analyzes the unique mineral composition of DSW and its scientific mechanisms for human metabolism, cardiovascular health, and fatigue recovery.",
                     "badges": { "temp": "Low Temp (2℃)", "ratio": "Ideal Mg:Ca (3:1)", "purity": "Clean/Pathogen Free" },
-                    "abstract": { "title": "Research Abstract", "text": "Recent clinical studies suggest that desalinated DSW intake significantly improves lipid profiles, accelerates lactate decomposition after exercise, and alleviates atopic dermatitis symptoms. The high bioavailability of trace minerals, especially Magnesium (Mg), acts as a key mechanism for these physiological benefits.", "btn": "Explore Data" }
+                    "abstract": { "title": "Research Abstract", "text": "Recent clinical studies suggest that desalinated DSW intake significantly improves lipid profiles, accelerates lactate decomposition after exercise, and alleviates atopic dermatitis symptoms. The high bioavailability of trace minerals, especially Magnesium (Mg), acts as a key mechanism for these physiological benefits.", "btn": "Explore Data &rarr;" }
                 },
                 "minerals": {
                     "subtitle": "Component Analysis",
                     "title": "Unrivaled Mineral Profile",
-                    "desc": "Unlike surface water or regular mineral water, DSW is rich in essential minerals like magnesium, calcium, and potassium, with a balance similar to human body fluids for rapid absorption.",
+                    "desc": "Unlike surface water or regular mineral water, DSW is rich in essential minerals like magnesium, calcium, and potassium, with a balance similar to human body fluids for rapid absorption. The chart below compares mineral content by source.",
                     "analysis": {
-                        "title": "Core Components",
+                        "title": "Core Component Analysis",
                         "mg": { "title": "Magnesium", "desc": "Enzyme activation, energy metabolism. Overwhelmingly rich in DSW." },
                         "ca": { "title": "Calcium", "desc": "Bone health and muscle contraction regulation." },
                         "k": { "title": "Potassium", "desc": "Blood pressure maintenance and fluid balance." },
@@ -94,7 +94,7 @@ const resources = {
                 "clinical": {
                     "subtitle": "Evidence Based",
                     "title": "Clinical Efficacy Dashboard",
-                    "desc": "Check out the four major clinical benefits of DSW proven through various clinical trials and animal experiments.",
+                    "desc": "Check out the four major clinical benefits of DSW proven through various clinical trials and animal experiments by clicking the tabs.",
                     "tabs": {
                         "cardio": { "title": "Cardiovascular", "sub": "BP & Blood Flow" },
                         "metabolic": { "title": "Metabolic", "sub": "Obesity & Diabetes" },
@@ -109,7 +109,7 @@ const resources = {
                     "desc": "Drinkable deep sea water undergoes strict legal standards for intake, desalination, and mineral adjustment. Sodium (NaCl) is removed via Reverse Osmosis (RO) and electrodialysis while beneficial minerals (Mg, Ca, K) are preserved.",
                     "steps": {
                         "intake": { "title": "Intake", "desc": "Sourced from pristine deep sea below 200m" },
-                        "desalination": { "title": "Desalination", "desc": "Salt removal and filtration via RO filters" },
+                        "desalination": { "title": "Desalination & Purification", "desc": "Salt removal and filtration via RO filters" },
                         "modulation": { "title": "Modulation", "desc": "Hardness adjustment and mineral balance optimization" }
                     },
                     "hardness": {
@@ -197,13 +197,13 @@ const resources = {
                 "hero": {
                     "title": "먹는 해양심층수의 과학적 효능과 임상적 가치",
                     "desc": "해양심층수(Deep Sea Water, DSW)는 태양광이 도달하지 않는 수심 200m 이하의 심해에 존재하는 고유수입니다. 본 리포트는 DSW의 독특한 미네랄 구성과 그것이 인체 대사, 심혈관 건강, 피로 회복에 미치는 과학적 메커니즘을 종합적으로 분석합니다.",
-                    "badges": { "temp": "연중 저수온 (2℃)", "ratio": "Mg:Ca 이상적 비율 (3:1)", "purity": "병원균 불검출 (Clean)" },
-                    "abstract": { "title": "연구 요약 (Abstract)", "text": "최근 임상 연구들은 탈염된 해양심층수 섭취가 혈중 지질 프로필 개선, 운동 후 젖산 분해 가속화, 그리고 아토피 피부염 증상 완화에 유의미한 효과가 있음을 시사합니다. 특히 마그네슘(Mg)을 비롯한 미량 미네랄의 높은 생체 이용률이 이러한 생리학적 이점의 핵심 기전으로 작용합니다.", "btn": "데이터 탐색 시작" }
+                    "badges": { "temp": "2℃ 연중 저수온", "ratio": "Mg:Ca 이상적 비율 (3:1)", "purity": "Clean 병원균 불검출" },
+                    "abstract": { "title": "연구 요약 (Abstract)", "text": "최근 임상 연구들은 탈염된 해양심층수 섭취가 혈중 지질 프로필 개선, 운동 후 젖산 분해 가속화, 그리고 아토피 피부염 증상 완화에 유의미한 효과가 있음을 시사합니다. 특히 마그네슘(Mg)을 비롯한 미량 미네랄의 높은 생체 이용률이 이러한 생리학적 이점의 핵심 기전으로 작용합니다.", "btn": "데이터 탐색 시작 &rarr;" }
                 },
                 "minerals": {
                     "subtitle": "Component Analysis",
                     "title": "독보적인 미네랄 조성 (Mineral Profile)",
-                    "desc": "해양심층수는 표층수나 일반 생수와 달리 마그네슘, 칼슘, 칼륨 등 필수 미네랄이 풍부하며, 체액과 유사한 미네랄 밸런스를 가지고 있어 흡수가 빠릅니다.",
+                    "desc": "해양심층수는 표층수나 일반 생수와 달리 마그네슘, 칼슘, 칼륨 등 필수 미네랄이 풍부하며, 체액과 유사한 미네랄 밸런스를 가지고 있어 흡수가 빠릅니다. 아래 차트는 주요 수원별 미네랄 함량을 비교합니다.",
                     "analysis": {
                         "title": "핵심 성분 분석",
                         "mg": { "title": "마그네슘 (Magnesium)", "desc": "효소 활성화, 에너지 대사 관여. DSW에 압도적으로 풍부." },
@@ -217,7 +217,7 @@ const resources = {
                 "clinical": {
                     "subtitle": "Evidence Based",
                     "title": "임상 효능 대시보드 (Clinical Efficacy)",
-                    "desc": "다양한 임상 시험 및 동물 실험을 통해 입증된 해양심층수의 4대 주요 효능을 확인해보세요.",
+                    "desc": "다양한 임상 시험 및 동물 실험을 통해 입증된 해양심층수의 4대 주요 효능을 탭을 눌러 확인해보세요.",
                     "tabs": {
                         "cardio": { "title": "심혈관 건강", "sub": "혈압 및 혈류 개선" },
                         "metabolic": { "title": "대사 질환", "sub": "비만 및 당뇨 관리" },
@@ -237,9 +237,9 @@ const resources = {
                     },
                     "hardness": {
                         "title": "경도(Hardness)에 따른 분류",
-                        "soft": "연수 (Soft Water, 0~50)",
-                        "moderate": "중경수 (Moderate, 50~150)",
-                        "hard": "경수 (Hard Water, 300~1000+)",
+                        "soft": "Soft Water (연수, 0 ~ 50)",
+                        "moderate": "Moderate (중경수, 50 ~ 150)",
+                        "hard": "Hard Water (경수, 300 ~ 1000+)",
                         "dsw_main": "(*DSW 주력 제품군)",
                         "formula": "*경도 = (칼슘 함량 × 2.5) + (마그네슘 함량 × 4.1)"
                     }
