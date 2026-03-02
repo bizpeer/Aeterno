@@ -32,6 +32,11 @@ const resources = {
                         "desc": "Featuring a naturally occurring mineral profile with a distinctive mineral ratio, sourced from deep ocean waters."
                     }
                 },
+                "summary": {
+                    "title": "AETERNO Deep Ocean Water",
+                    "desc": "Collected 17.5 km offshore at a depth of 1,032 meters, featuring a naturally occurring mineral composition with a 3:1:1 ratio of Mg, Ca, and K.",
+                    "tagline": "Purely defined by its origin."
+                },
                 "table": {
                     "depth": "Depth",
                     "classification": "Classification",
@@ -213,6 +218,11 @@ const resources = {
                     "balance": {
                         "desc": "심해의 기원으로부터 얻어진 독특한 미네랄 비율과 천연 미네랄 프로필을 특징으로 합니다."
                     }
+                },
+                "summary": {
+                    "title": "AETERNO Deep Ocean Water",
+                    "desc": "해안에서 17.5km, 수심 1,032m 지점에서 취수하여 마그네슘, 칼슘, 칼륨이 3:1:1의 천연 미네랄 조성을 갖추고 있습니다.",
+                    "tagline": "그 근원으로부터 정의되는 순수함."
                 },
                 "table": {
                     "depth": "Depth (깊이)",
