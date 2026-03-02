@@ -14,8 +14,10 @@ const resources = {
             "footer": { "brandDesc": "Pure Depth. Intelligent Hydration.\n1,032m Deep Ocean Water from the East Sea.", "company": "Company", "legal": "Legal", "followUs": "Follow Us", "rights": "All rights reserved.", "designed": "Designed for Premium Hydration." },
             "cta": { "inquire": "Inquire OEM", "balance": "Balance Your Body", "contact": "Contact Us Now" },
             "science": {
-                "purity_depth1": "As the depth increases, nutrient salts are concentrated and man-made pollutants disappear.",
-                "purity_depth2": "1,000m deep sea is a depth that domestic sewage and industrial pollutants cannot physically reach.",
+                "title": "1,032m Below",
+                "subtitle": "Where Time and Pressure Create Perfection",
+                "purity_depth1": "At depths of around 1,032 meters, ocean water exhibits stable temperature conditions, increased mineral presence, and minimal interaction with surface-origin influences.",
+                "purity_depth2": "AETERNO captures this naturally occurring mineral profile of Mg(3):Ca(1):K(1) at its source.",
                 "table": {
                     "depth": "Depth",
                     "classification": "Classification",
@@ -180,8 +182,10 @@ const resources = {
             "footer": { "brandDesc": "순수한 깊이. 지능적인 수분 공급.\n동해 수심 1,032m 초심층수.", "company": "회사", "legal": "법적 고지", "followUs": "소셜 미디어", "rights": "All rights reserved.", "designed": "프리미엄 수분 보충을 위해 설계되었습니다." },
             "cta": { "inquire": "OEM 문의하기", "balance": "Balance Your Body", "contact": "지금 상담하기" },
             "science": {
-                "purity_depth1": "수심이 깊어질수록 영양염류는 농축되고, 수심이 깊어질 수록 인위적 오염물질은 사라지며,",
-                "purity_depth2": "심해 1,000m는 생활하수, 산업 오염물질이 물리적으로 도달할 수 없는 깊이입니다.",
+                "title": "수심 1,032m 아래",
+                "subtitle": "시간과 압력이 만들어낸 완벽함",
+                "purity_depth1": "수심 1,032m에서 해양심층수는 안정적인 저온 상태를 유지하며, 농축된 미네랄과 표층수로부터 완전히 격리된 순수성을 보여줍니다.",
+                "purity_depth2": "에테르노(AETERNO)는 마그네슘(3):칼슘(1):칼륨(1)의 천연 미네랄 밸런스를 취수원 그대로 담아냅니다.",
                 "table": {
                     "depth": "Depth (깊이)",
                     "classification": "Classification (구분)",

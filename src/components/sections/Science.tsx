@@ -41,10 +41,10 @@ export function Science() {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
                     <span className="text-BRAND-teal text-sm font-bold tracking-widest uppercase mb-4 block">
-                        The Science of Happiness
+                        {t('science.title')}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">
-                        Purity by Numbers
+                        {t('science.subtitle')}
                     </h2>
 
                     <motion.div
