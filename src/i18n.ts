@@ -76,7 +76,7 @@ const resources = {
                 },
                 "aseptic": {
                     "title": "Aseptic Filling",
-                    "desc": "NASA-grade aseptic filling system for absolute safety."
+                    "desc": "The Sanctuary of Purity: An Untouched Filling Process Dedicated to Your Uncompromising Safety."
                 }
             },
             "brandStory": {
